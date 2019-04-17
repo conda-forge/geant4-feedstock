@@ -31,7 +31,7 @@ source:
 {%- else %}
   url: {{ release_url }}/{{ name }}.{{ major_version }}.{{ minor_version.rjust(2, "0") }}.p{{ patch_version.rjust(2, "0") }}.tar.gz
 {%- endif %}
-  sha256: f4a292220500fad17e0167ce3153e96e3410ecbe96284e572dc707f63523bdff
+  sha256: c6bc5a913b846b9fe7dd6e6a8bf11ef315e00a37c14e67b0a5213205a9abe79f
 
 build:
   number: 0
@@ -132,7 +132,7 @@ outputs:
   # variants of the package, allowing the default variant to take precedence
   # unless required explicitly.
   - name: geant4_data_variant
-    version: "10.5.1"
+    version: 1.0
     build:
       string: {{ geant4_data_variant }}
 {%- if geant4_data_variant != "default" %}
@@ -141,7 +141,7 @@ outputs:
 {%- endif %}
 
   - name: geant4_visualisation_variant
-    version: "10.5.1"
+    version: 1.0
     build:
       string: {{ geant4_visualisation_variant }}
 {%- if geant4_data_variant != "default" %}
