@@ -38,7 +38,7 @@ cmake                                                          \
       -DBUILD_SHARED_LIBS=ON                                   \
       -DGEANT4_INSTALL_EXAMPLES=ON                             \
       -DGEANT4_INSTALL_DATA=OFF                                \
-      -DGEANT4_BUILD_MULTITHREADED=ON                          \
+      -DGEANT4_BUILD_MULTITHREADED=OFF                         \
       -DGEANT4_USE_GDML=ON                                     \
       ${CMAKE_PLATFORM_FLAGS[@]} \
       ${SRC_DIR}
