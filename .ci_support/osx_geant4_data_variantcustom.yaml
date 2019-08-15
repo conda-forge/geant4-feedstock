@@ -18,6 +18,7 @@ geant4_data_variant:
 - custom
 geant4_visualisation_variant:
 - default
+- qt
 macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
@@ -32,7 +33,7 @@ pin_run_as_build:
   zlib:
     max_pin: x.x
 qt:
-- '5.9'
+- '5.12'
 xerces_c:
 - 3.2.2
 zlib:
