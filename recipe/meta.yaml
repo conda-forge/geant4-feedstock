@@ -34,7 +34,7 @@ source:
   sha256: c6bc5a913b846b9fe7dd6e6a8bf11ef315e00a37c14e67b0a5213205a9abe79f
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win]
 
 # Specifying `compiler('cxx')` as a top-level build requirements to force
