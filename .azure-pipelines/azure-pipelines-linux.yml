@@ -10,12 +10,20 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      linux_geant4_data_variantcustom:
-        CONFIG: linux_geant4_data_variantcustom
+      linux_geant4_data_variantcustomgeant4_visualisation_variantdefault:
+        CONFIG: linux_geant4_data_variantcustomgeant4_visualisation_variantdefault
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_geant4_data_variantdefault:
-        CONFIG: linux_geant4_data_variantdefault
+      linux_geant4_data_variantcustomgeant4_visualisation_variantqt:
+        CONFIG: linux_geant4_data_variantcustomgeant4_visualisation_variantqt
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_geant4_data_variantdefaultgeant4_visualisation_variantdefault:
+        CONFIG: linux_geant4_data_variantdefaultgeant4_visualisation_variantdefault
+        UPLOAD_PACKAGES: True
+        DOCKER_IMAGE: condaforge/linux-anvil-comp7
+      linux_geant4_data_variantdefaultgeant4_visualisation_variantqt:
+        CONFIG: linux_geant4_data_variantdefaultgeant4_visualisation_variantqt
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
   steps:

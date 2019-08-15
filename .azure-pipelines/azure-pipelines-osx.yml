@@ -10,11 +10,17 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      osx_geant4_data_variantcustom:
-        CONFIG: osx_geant4_data_variantcustom
+      osx_geant4_data_variantcustomgeant4_visualisation_variantdefault:
+        CONFIG: osx_geant4_data_variantcustomgeant4_visualisation_variantdefault
         UPLOAD_PACKAGES: True
-      osx_geant4_data_variantdefault:
-        CONFIG: osx_geant4_data_variantdefault
+      osx_geant4_data_variantcustomgeant4_visualisation_variantqt:
+        CONFIG: osx_geant4_data_variantcustomgeant4_visualisation_variantqt
+        UPLOAD_PACKAGES: True
+      osx_geant4_data_variantdefaultgeant4_visualisation_variantdefault:
+        CONFIG: osx_geant4_data_variantdefaultgeant4_visualisation_variantdefault
+        UPLOAD_PACKAGES: True
+      osx_geant4_data_variantdefaultgeant4_visualisation_variantqt:
+        CONFIG: osx_geant4_data_variantdefaultgeant4_visualisation_variantqt
         UPLOAD_PACKAGES: True
 
   steps:
