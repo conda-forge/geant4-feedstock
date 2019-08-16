@@ -10,11 +10,17 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      osx_geant4_data_variantcustom:
-        CONFIG: osx_geant4_data_variantcustom
+      osx_geant4_data_variantcustomgeant4_visualisation_variantdefault:
+        CONFIG: osx_geant4_data_variantcustomgeant4_visualisation_variantdefault
         UPLOAD_PACKAGES: True
-      osx_geant4_data_variantdefault:
-        CONFIG: osx_geant4_data_variantdefault
+      osx_geant4_data_variantcustomgeant4_visualisation_variantqt:
+        CONFIG: osx_geant4_data_variantcustomgeant4_visualisation_variantqt
+        UPLOAD_PACKAGES: True
+      osx_geant4_data_variantdefaultgeant4_visualisation_variantdefault:
+        CONFIG: osx_geant4_data_variantdefaultgeant4_visualisation_variantdefault
+        UPLOAD_PACKAGES: True
+      osx_geant4_data_variantdefaultgeant4_visualisation_variantqt:
+        CONFIG: osx_geant4_data_variantdefaultgeant4_visualisation_variantqt
         UPLOAD_PACKAGES: True
 
   steps:
@@ -38,7 +44,7 @@ jobs:
 
   - script: |
       source activate base
-      conda install -n base -c conda-forge --quiet --yes conda-forge-ci-setup=2 conda-build shyaml
+      conda install -n base -c conda-forge --quiet --yes conda-forge-ci-setup=2 conda-build
     displayName: 'Add conda-forge-ci-setup=2'
 
   - script: |
@@ -46,7 +52,7 @@ jobs:
       echo "Configuring conda."
 
       setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
-
+      export CI=azure
       source run_conda_forge_build_setup
       conda update --yes --quiet --override-channels -c conda-forge -c defaults --all
     env: {

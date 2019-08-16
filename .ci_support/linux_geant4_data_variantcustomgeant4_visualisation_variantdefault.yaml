@@ -1,27 +1,23 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
 c_compiler:
-- clang
+- gcc
 c_compiler_version:
-- '4'
+- '7'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- clangxx
+- gxx
 cxx_compiler_version:
-- '4'
+- '7'
+docker_image:
+- condaforge/linux-anvil-comp7
 expat:
 - '2.2'
 geant4_data_variant:
 - custom
 geant4_visualisation_variant:
 - default
-macos_machine:
-- x86_64-apple-darwin13.4.0
-macos_min_version:
-- '10.9'
 pin_run_as_build:
   expat:
     max_pin: x.x
@@ -32,7 +28,7 @@ pin_run_as_build:
   zlib:
     max_pin: x.x
 qt:
-- '5.9'
+- '5.12'
 xerces_c:
 - 3.2.2
 zlib:

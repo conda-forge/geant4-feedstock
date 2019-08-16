@@ -10,8 +10,13 @@ fi
 
 if [[ ${geant4_visualisation_variant} == "qt" ]]; then
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_QT=ON)
-  CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_OPENGL_X11=ON)
-  CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_RAYTRACER_X11=ON)
+  if [[ ${HOST} =~ .*darwin.* ]]; then
+    CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_OPENGL_X11=OFF)
+    CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_RAYTRACER_X11=OFF)
+  else
+    CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_OPENGL_X11=ON)
+    CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_RAYTRACER_X11=ON)
+  fi
 fi
 
 if [[ ${DEBUG_C:-no} == yes ]]; then
@@ -28,7 +33,7 @@ sed -r -i -E 's#cmake_minimum_required\(VERSION [0-9]\.[0-9]#cmake_minimum_requi
 mkdir geant4-build
 cd geant4-build
 
-cmake                                                          \
+cmake -LAH                                                     \
       -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}                   \
       -DCMAKE_INSTALL_PREFIX=${PREFIX}                         \
       -DGEANT4_BUILD_CXXSTD=17                                 \

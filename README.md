@@ -36,31 +36,59 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_geant4_data_variantcustom</td>
+              <td>linux_geant4_data_variantcustomgeant4_visualisation_variantdefault</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_geant4_data_variantcustom" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_geant4_data_variantcustomgeant4_visualisation_variantdefault" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_geant4_data_variantdefault</td>
+              <td>linux_geant4_data_variantcustomgeant4_visualisation_variantqt</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_geant4_data_variantdefault" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_geant4_data_variantcustomgeant4_visualisation_variantqt" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_geant4_data_variantcustom</td>
+              <td>linux_geant4_data_variantdefaultgeant4_visualisation_variantdefault</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_geant4_data_variantcustom" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_geant4_data_variantdefaultgeant4_visualisation_variantdefault" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_geant4_data_variantdefault</td>
+              <td>linux_geant4_data_variantdefaultgeant4_visualisation_variantqt</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_geant4_data_variantdefault" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_geant4_data_variantdefaultgeant4_visualisation_variantqt" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_geant4_data_variantcustomgeant4_visualisation_variantdefault</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_geant4_data_variantcustomgeant4_visualisation_variantdefault" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_geant4_data_variantcustomgeant4_visualisation_variantqt</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_geant4_data_variantcustomgeant4_visualisation_variantqt" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_geant4_data_variantdefaultgeant4_visualisation_variantdefault</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_geant4_data_variantdefaultgeant4_visualisation_variantdefault" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_geant4_data_variantdefaultgeant4_visualisation_variantqt</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_geant4_data_variantdefaultgeant4_visualisation_variantqt" alt="variant">
                 </a>
               </td>
             </tr>
