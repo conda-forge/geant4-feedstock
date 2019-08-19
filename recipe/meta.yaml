@@ -49,6 +49,7 @@ outputs:
     version: {{ version }}
     build:
       script: $RECIPE_DIR/build_geant4.sh
+      string: "{{ geant4_visualisation_variant }}_h{{ PKG_HASH }}_{{ build }}"
       run_exports:
         - {{ pin_subpackage('geant4', max_pin='x.x') }}
     requirements:
@@ -93,6 +94,7 @@ outputs:
   - name: geant4
     version: {{ version }}
     build:
+      string: "{{ geant4_data_variant }}_{{ geant4_visualisation_variant }}_h{{ PKG_HASH }}_{{ build }}"
       run_exports:
         - {{ pin_subpackage('geant4', max_pin='x.x') }}
     requirements:
