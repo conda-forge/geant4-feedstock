@@ -1,6 +1,6 @@
 {% set name = "geant4" %}
 {% set version = "10.5.1" %}
-{% set build = 2 %}
+{% set build = 3 %}
 # GEANT4 data packages, versions are taken from:
 # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/Geant4DatasetDefinitions.cmake
 {% set data_packages = [
