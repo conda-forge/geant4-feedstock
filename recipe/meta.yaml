@@ -1,5 +1,6 @@
 {% set name = "geant4" %}
 {% set version = "10.5.1" %}
+{% set build = 3 %}
 # GEANT4 data packages, versions are taken from:
 # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/Geant4DatasetDefinitions.cmake
 {% set data_packages = [
@@ -34,7 +35,7 @@ source:
   sha256: c6bc5a913b846b9fe7dd6e6a8bf11ef315e00a37c14e67b0a5213205a9abe79f
 
 build:
-  number: 2
+  number: {{ build }}
   skip: True  # [win]
 
 # Specifying `compiler('cxx')` as a top-level build requirements to force
@@ -49,6 +50,7 @@ outputs:
     version: {{ version }}
     build:
       script: $RECIPE_DIR/build_geant4.sh
+      string: "{{ geant4_visualisation_variant }}_h{{ PKG_HASH }}_{{ build }}"
       run_exports:
         - {{ pin_subpackage('geant4', max_pin='x.x') }}
     requirements:
@@ -93,6 +95,7 @@ outputs:
   - name: geant4
     version: {{ version }}
     build:
+      string: "{{ geant4_data_variant }}_{{ geant4_visualisation_variant }}_h{{ PKG_HASH }}_{{ build }}"
       run_exports:
         - {{ pin_subpackage('geant4', max_pin='x.x') }}
     requirements:
