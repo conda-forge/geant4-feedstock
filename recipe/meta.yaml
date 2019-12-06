@@ -1,6 +1,6 @@
 {% set name = "geant4" %}
-{% set version = "10.5.1" %}
-{% set build = 3 %}
+{% set version = "10.6.0" %}
+{% set build = 0 %}
 # GEANT4 data packages, versions are taken from:
 # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/Geant4DatasetDefinitions.cmake
 {% set data_packages = [
@@ -32,7 +32,7 @@ source:
 {%- else %}
   url: {{ release_url }}/{{ name }}.{{ major_version }}.{{ minor_version.rjust(2, "0") }}.p{{ patch_version.rjust(2, "0") }}.tar.gz
 {%- endif %}
-  sha256: c6bc5a913b846b9fe7dd6e6a8bf11ef315e00a37c14e67b0a5213205a9abe79f
+  sha256: 1424c5a0e37adf577f265984956a77b19701643324e87568c5cb69adc59e3199
 
 build:
   number: {{ build }}
@@ -135,7 +135,7 @@ outputs:
   # variants of the package, allowing the default variant to take precedence
   # unless required explicitly.
   - name: geant4_data_variant
-    version: 1.0
+    version: "10.6.0"
     build:
       string: {{ geant4_data_variant }}
 {%- if geant4_data_variant != "default" %}
@@ -144,7 +144,7 @@ outputs:
 {%- endif %}
 
   - name: geant4_visualisation_variant
-    version: 1.0
+    version: "10.6.0"
     build:
       string: {{ geant4_visualisation_variant }}
 {%- if geant4_data_variant != "default" %}
