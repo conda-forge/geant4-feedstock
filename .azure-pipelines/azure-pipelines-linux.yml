@@ -10,20 +10,12 @@ jobs:
   strategy:
     maxParallel: 8
     matrix:
-      linux_geant4_data_variantcustomgeant4_visualisation_variantdefault:
-        CONFIG: linux_geant4_data_variantcustomgeant4_visualisation_variantdefault
+      linux_geant4_data_variantcustom:
+        CONFIG: linux_geant4_data_variantcustom
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_geant4_data_variantcustomgeant4_visualisation_variantqt:
-        CONFIG: linux_geant4_data_variantcustomgeant4_visualisation_variantqt
-        UPLOAD_PACKAGES: True
-        DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_geant4_data_variantdefaultgeant4_visualisation_variantdefault:
-        CONFIG: linux_geant4_data_variantdefaultgeant4_visualisation_variantdefault
-        UPLOAD_PACKAGES: True
-        DOCKER_IMAGE: condaforge/linux-anvil-comp7
-      linux_geant4_data_variantdefaultgeant4_visualisation_variantqt:
-        CONFIG: linux_geant4_data_variantdefaultgeant4_visualisation_variantqt
+      linux_geant4_data_variantdefault:
+        CONFIG: linux_geant4_data_variantdefault
         UPLOAD_PACKAGES: True
         DOCKER_IMAGE: condaforge/linux-anvil-comp7
   steps:
@@ -37,7 +29,8 @@ jobs:
 
   - script: |
         export CI=azure
-        .azure-pipelines/run_docker_build.sh
+        export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+        .scripts/run_docker_build.sh
     displayName: Run docker build
     env:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
