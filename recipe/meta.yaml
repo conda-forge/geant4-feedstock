@@ -72,6 +72,7 @@ outputs:
         - expat
         - xerces-c
         - zlib
+        - libglu  # [linux]
 {%- if geant4_visualisation_variant == "qt" %}
         - qt
         - xorg-libxfixes
