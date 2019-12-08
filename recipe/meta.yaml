@@ -32,7 +32,7 @@ source:
 {%- else %}
   url: {{ release_url }}/{{ name }}.{{ major_version }}.{{ minor_version.rjust(2, "0") }}.p{{ patch_version.rjust(2, "0") }}.tar.gz
 {%- endif %}
-  sha256: 1424c5a0e37adf577f265984956a77b19701643324e87568c5cb69adc59e3199
+  sha256: dc9adfe6aa508c6944e8a5ca14a6a799e36408d5784757aca1f2c51819fc467d
 
 build:
   number: {{ build }}
