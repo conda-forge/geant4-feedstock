@@ -1,5 +1,5 @@
 {% set name = "geant4" %}
-{% set version = "10.6.0" %}
+{% set version = "10.6.1" %}
 {% set build = 0 %}
 # GEANT4 data packages, versions are taken from:
 # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/Geant4DatasetDefinitions.cmake
@@ -33,7 +33,7 @@ source:
 {%- else %}
   url: {{ release_url }}/{{ name }}.{{ major_version }}.{{ minor_version.rjust(2, "0") }}.p{{ patch_version.rjust(2, "0") }}.tar.gz
 {%- endif %}
-  sha256: dc9adfe6aa508c6944e8a5ca14a6a799e36408d5784757aca1f2c51819fc467d
+  sha256: 73459f823a20cc21ec58da491cc464aaeb771ea560f9e6c692b4efd3da795d6b
 
 build:
   number: {{ build }}
