@@ -1,0 +1,36 @@
+c_compiler:
+- gcc
+c_compiler_version:
+- '8'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- gxx
+cxx_compiler_version:
+- '8'
+docker_image:
+- condaforge/linux-anvil-ppc64le
+expat:
+- '2.2'
+geant4_data_variant:
+- custom
+geant4_visualisation_variant:
+- default
+- qt
+pin_run_as_build:
+  expat:
+    max_pin: x.x
+  qt:
+    max_pin: x.x
+  xerces-c:
+    max_pin: x.x.x
+  zlib:
+    max_pin: x.x
+qt:
+- '5.12'
+xerces_c:
+- 3.2.2
+zlib:
+- '1.2'
