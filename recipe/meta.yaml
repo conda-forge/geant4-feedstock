@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/Geant4/geant4/archive/v{{ version }}.tar.gz
   sha256: f16c03bb2d346b398d500a3977fa7035d63e6c1f087db239c26f1ca113302daf
-  patches:
-    - patches/cmake-dont-remember-opengl-path.patch
 
 build:
   number: 0
@@ -35,6 +33,7 @@ requirements:
     - {{ cdt('libxxf86vm') }}  # [linux]
     - {{ cdt('libxext') }}     # [linux]
   host:
+    - clhep
     - expat
     - freetype
     - libglu  # [linux]
