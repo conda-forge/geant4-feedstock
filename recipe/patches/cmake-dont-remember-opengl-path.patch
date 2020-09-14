@@ -1,0 +1,40 @@
+From 04b4ce01aa42cfcb447d581bbb8a4ca93eb91ded Mon Sep 17 00:00:00 2001
+From: Chris Burr <chrisburr@users.noreply.github.com>
+Date: Sat, 12 Sep 2020 20:58:58 +0200
+Subject: [PATCH] Don't write OpenGL paths into CMake configuration
+
+---
+ cmake/Modules/Geant4InterfaceOptions.cmake | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/cmake/Modules/Geant4InterfaceOptions.cmake b/cmake/Modules/Geant4InterfaceOptions.cmake
+index 1c5cb57dd..bb1ad03a0 100644
+--- a/cmake/Modules/Geant4InterfaceOptions.cmake
++++ b/cmake/Modules/Geant4InterfaceOptions.cmake
+@@ -128,7 +128,6 @@ if(GEANT4_USE_QT)
+   endif()
+
+   find_package(OpenGL REQUIRED)
+-  geant4_save_package_variables(OpenGL OPENGL_INCLUDE_DIR OPENGL_gl_LIBRARY OPENGL_glu_LIBRARY)
+
+   # Variables for export
+   execute_process(COMMAND ${QT_QMAKE_EXECUTABLE} -query QT_INSTALL_PREFIX OUTPUT_VARIABLE G4QTHOME OUTPUT_STRIP_TRAILING_WHITESPACE)
+@@ -238,7 +237,6 @@ if(UNIX)
+   if(GEANT4_USE_INVENTOR OR GEANT4_USE_XM OR GEANT4_USE_OPENGL_X11)
+     # - Find native GL first
+     find_package(OpenGL REQUIRED)
+-    geant4_save_package_variables(OpenGL OPENGL_INCLUDE_DIR OPENGL_gl_LIBRARY OPENGL_glu_LIBRARY)
+
+     # - If we're on Apple, also find the XQuartz GL libraries and append t.
+     if(APPLE)
+@@ -278,7 +276,6 @@ if(WIN32)
+     # This is part of the G4OpenGL component, so mark it as needed
+     set(GEANT4_USE_OPENGL ON)
+     geant4_add_feature(GEANT4_USE_OPENGL_WIN32 "Build OpenGL driver with Win32 support")
+-    geant4_save_package_variables(OpenGL OPENGL_INCLUDE_DIR OPENGL_gl_LIBRARY OPENGL_glu_LIBRARY)
+   endif()
+ endif()
+
+--
+2.28.0
+
