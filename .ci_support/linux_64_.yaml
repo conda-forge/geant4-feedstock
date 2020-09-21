@@ -14,23 +14,22 @@ docker_image:
 - condaforge/linux-anvil-comp7
 expat:
 - '2.2'
-geant4_data_variant:
-- custom
-geant4_visualisation_variant:
-- default
-- qt
+freetype:
+- 2.9.1
 pin_run_as_build:
   expat:
     max_pin: x.x
+  freetype:
+    max_pin: x
   qt:
     max_pin: x.x
-  xerces-c:
-    max_pin: x.x.x
   zlib:
     max_pin: x.x
 qt:
 - '5.12'
+target_platform:
+- linux-64
 xerces_c:
-- 3.2.2
+- '3.2'
 zlib:
 - '1.2'

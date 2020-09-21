@@ -3,9 +3,9 @@ About geant4
 
 Home: https://geant4.web.cern.ch/
 
-Package license: Geant4
+Package license: LicenseRef-Geant4
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
 
@@ -36,49 +36,23 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_geant4_data_variantcustom</td>
+              <td>linux_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_geant4_data_variantcustom" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_geant4_data_variantdefault</td>
+              <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=linux&configuration=linux_geant4_data_variantdefault" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_geant4_data_variantcustom</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_geant4_data_variantcustom" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_geant4_data_variantdefault</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_geant4_data_variantdefault" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=master&jobName=osx&configuration=osx_64_" alt="variant">
                 </a>
               </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Windows</td>
-    <td>
-      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
-    </td>
-  </tr>
-  <tr>
-    <td>Linux_ppc64le</td>
-    <td>
-      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
     </td>
   </tr>
 </table>
@@ -89,9 +63,6 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-geant4-green.svg)](https://anaconda.org/conda-forge/geant4) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/geant4.svg)](https://anaconda.org/conda-forge/geant4) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/geant4.svg)](https://anaconda.org/conda-forge/geant4) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/geant4.svg)](https://anaconda.org/conda-forge/geant4) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-geant4--base-green.svg)](https://anaconda.org/conda-forge/geant4-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/geant4-base.svg)](https://anaconda.org/conda-forge/geant4-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/geant4-base.svg)](https://anaconda.org/conda-forge/geant4-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/geant4-base.svg)](https://anaconda.org/conda-forge/geant4-base) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-geant4_data_variant-green.svg)](https://anaconda.org/conda-forge/geant4_data_variant) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/geant4_data_variant.svg)](https://anaconda.org/conda-forge/geant4_data_variant) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/geant4_data_variant.svg)](https://anaconda.org/conda-forge/geant4_data_variant) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/geant4_data_variant.svg)](https://anaconda.org/conda-forge/geant4_data_variant) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-geant4_visualisation_variant-green.svg)](https://anaconda.org/conda-forge/geant4_visualisation_variant) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/geant4_visualisation_variant.svg)](https://anaconda.org/conda-forge/geant4_visualisation_variant) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/geant4_visualisation_variant.svg)](https://anaconda.org/conda-forge/geant4_visualisation_variant) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/geant4_visualisation_variant.svg)](https://anaconda.org/conda-forge/geant4_visualisation_variant) |
 
 Installing geant4
 =================
@@ -102,10 +73,10 @@ Installing `geant4` from the `conda-forge` channel can be achieved by adding `co
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `geant4, geant4-base, geant4_data_variant, geant4_visualisation_variant` can be installed with:
+Once the `conda-forge` channel has been enabled, `geant4` can be installed with:
 
 ```
-conda install geant4 geant4-base geant4_data_variant geant4_visualisation_variant
+conda install geant4
 ```
 
 It is possible to list all of the versions of `geant4` available on your platform with:
