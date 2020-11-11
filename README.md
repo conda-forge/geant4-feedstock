@@ -5,9 +5,13 @@ Home: https://geant4.web.cern.ch/
 
 Package license: LicenseRef-Geant4
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geant4-feedstock/blob/master/LICENSE.txt)
 
 Summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
+
+Development: https://github.com/Geant4/geant4
+
+Documentation: https://geant4.web.cern.ch/support
 
 Geant4 is a toolkit for the simulation of the passage of particles through
 matter. Its areas of application include high energy, nuclear and
