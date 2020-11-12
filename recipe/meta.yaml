@@ -1,5 +1,5 @@
 {% set name = "geant4" %}
-{% set version = "10.6.2" %}
+{% set version = "10.6.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://github.com/Geant4/geant4/archive/v{{ version }}.tar.gz
-  sha256: f16c03bb2d346b398d500a3977fa7035d63e6c1f087db239c26f1ca113302daf
+  sha256: 175114f3c99efab50475c4d8736f8d751ea700f98a613448839688aa3c05e2a8
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: true  # [win]
   script: ${RECIPE_DIR}/build_geant4.sh
   run_exports:
     - {{ pin_subpackage('geant4', max_pin='x.x.x') }}
@@ -80,7 +80,7 @@ test:
     - $RECIPE_DIR/test_geant4.sh
 
 about:
-  summary: 'Geant4 is a toolkit for the simulation of the passage of particles through matter.'
+  summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
   description: |
     Geant4 is a toolkit for the simulation of the passage of particles through
     matter. Its areas of application include high energy, nuclear and
