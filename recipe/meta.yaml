@@ -33,6 +33,8 @@ requirements:
     - {{ cdt('libxxf86vm') }}  # [linux]
     - {{ cdt('libxext') }}     # [linux]
   host:
+    - python
+    - boost
     - clhep =2.4.4.0
     - expat
     - freetype
@@ -44,6 +46,7 @@ requirements:
     - xorg-libxmu
     - zlib
   run:
+    - python
     - libglu  # [linux]
     - xorg-libx11
     - xorg-libxmu
