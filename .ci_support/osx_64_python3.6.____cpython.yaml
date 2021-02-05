@@ -1,0 +1,49 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
+boost:
+- 1.72.0
+c_compiler:
+- clang
+c_compiler_version:
+- '10'
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+cxx_compiler:
+- clangxx
+cxx_compiler_version:
+- '10'
+expat:
+- '2.2'
+freetype:
+- '2'
+macos_machine:
+- x86_64-apple-darwin13.4.0
+pin_run_as_build:
+  boost:
+    max_pin: x.x.x
+  expat:
+    max_pin: x.x
+  freetype:
+    max_pin: x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+  qt:
+    max_pin: x.x
+  zlib:
+    max_pin: x.x
+python:
+- 3.6.* *_cpython
+qt:
+- '5.12'
+target_platform:
+- osx-64
+xerces_c:
+- '3.2'
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
+zlib:
+- '1.2'

@@ -1,5 +1,5 @@
 {% set name = "geant4" %}
-{% set version = "10.6.3" %}
+{% set version = "10.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Geant4/geant4/archive/v{{ version }}.tar.gz
-  sha256: 175114f3c99efab50475c4d8736f8d751ea700f98a613448839688aa3c05e2a8
+  sha256: 4c1be7448ec9b3b2e4691d79bdac6febaeb5d86cdf3c26d50106db54ef575c62
 
 build:
   number: 0
@@ -33,7 +33,9 @@ requirements:
     - {{ cdt('libxxf86vm') }}  # [linux]
     - {{ cdt('libxext') }}     # [linux]
   host:
-    - clhep
+    - python
+    - boost
+    - clhep =2.4.4.0
     - expat
     - freetype
     - libglu  # [linux]
@@ -44,6 +46,8 @@ requirements:
     - xorg-libxmu
     - zlib
   run:
+    - python
+    - boost
     - libglu  # [linux]
     - xorg-libx11
     - xorg-libxmu
@@ -58,15 +62,15 @@ requirements:
     # GEANT4 data packages, versions are taken from:
     # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/Geant4DatasetDefinitions.cmake
     - geant4-data-abla =3.1
-    - geant4-data-emlow =7.9
-    - geant4-data-ensdfstate =2.2
+    - geant4-data-emlow =7.13
+    - geant4-data-ensdfstate =2.3
     - geant4-data-incl =1.0
     - geant4-data-ndl =4.6
-    - geant4-data-particlexs =2.1
-    - geant4-data-photonevaporation =5.5
+    - geant4-data-particlexs =3.1
+    - geant4-data-photonevaporation =5.7
     - geant4-data-pii =1.3
-    - geant4-data-radioactivedecay =5.4
-    - geant4-data-realsurface =2.1.1
+    - geant4-data-radioactivedecay =5.6
+    - geant4-data-realsurface =2.2
     - geant4-data-saiddata =2.0
 
 test:
@@ -78,6 +82,24 @@ test:
   commands:
     - geant4-config --version
     - $RECIPE_DIR/test_geant4.sh
+  imports:
+    - Geant4
+    - Geant4.G4digits_hits
+    - Geant4.G4event
+    - Geant4.G4gdml
+    - Geant4.G4geometry
+    - Geant4.G4global
+    - Geant4.G4graphics_reps
+    - Geant4.G4intercoms
+    - Geant4.G4interfaces
+    - Geant4.G4materials
+    - Geant4.G4particles
+    - Geant4.G4physicslists
+    - Geant4.G4processes
+    - Geant4.G4run
+    - Geant4.G4track
+    - Geant4.G4tracking
+    - Geant4.G4visualization
 
 about:
   summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
