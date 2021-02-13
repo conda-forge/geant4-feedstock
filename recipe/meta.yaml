@@ -66,7 +66,7 @@ requirements:
     - geant4-data-ensdfstate =2.3
     - geant4-data-incl =1.0
     - geant4-data-ndl =4.6
-    - geant4-data-particlexs =3.1
+    - geant4-data-particlexs =3.1.1
     - geant4-data-photonevaporation =5.7
     - geant4-data-pii =1.3
     - geant4-data-radioactivedecay =5.6
