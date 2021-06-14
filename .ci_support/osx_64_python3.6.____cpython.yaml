@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '11'
 expat:
-- '2.2'
+- '2'
 freetype:
 - '2'
 macos_machine:
@@ -23,8 +23,6 @@ macos_machine:
 pin_run_as_build:
   boost:
     max_pin: x.x.x
-  expat:
-    max_pin: x.x
   freetype:
     max_pin: x
   python:
