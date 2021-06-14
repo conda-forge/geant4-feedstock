@@ -17,14 +17,12 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-comp7
 expat:
-- '2.2'
+- '2'
 freetype:
 - '2'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
-  expat:
-    max_pin: x.x
   freetype:
     max_pin: x
   python:
