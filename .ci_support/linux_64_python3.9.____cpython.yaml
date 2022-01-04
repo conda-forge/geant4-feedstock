@@ -15,7 +15,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '9'
 docker_image:
-- quay.io/condaforge/linux-anvil-comp7
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 expat:
 - '2'
 freetype:
@@ -28,14 +28,10 @@ pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
-  qt:
-    max_pin: x.x
   zlib:
     max_pin: x.x
 python:
 - 3.9.* *_cpython
-qt:
-- '5.12'
 target_platform:
 - linux-64
 xerces_c:
@@ -43,7 +39,5 @@ xerces_c:
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - cdt_name
-  - docker_image
 zlib:
 - '1.2'
