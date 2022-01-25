@@ -15,7 +15,9 @@ else
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_OPENGL_X11=ON)
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_RAYTRACER_X11=ON)
 fi
-
+if [[ "${target_platform}" == "osx-64" ]]; then
+    export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
 if [[ ${DEBUG_C:-no} == yes ]]; then
   CMAKE_BUILD_TYPE=Debug
 else
