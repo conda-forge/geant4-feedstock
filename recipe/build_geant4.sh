@@ -34,7 +34,7 @@ cmake                                                          \
       -DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"                 \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}"                       \
       -DBUILD_SHARED_LIBS=ON                                   \
-      -DGEANT4_BUILD_CXXSTD=17                                 \
+      -DCMAKE_CXX_STANDARD=17                                 \
       -DGEANT4_BUILD_MULTITHREADED=ON                          \
       -DGEANT4_BUILD_TLS_MODEL=global-dynamic                  \
       -DGEANT4_INSTALL_DATA=OFF                                \
