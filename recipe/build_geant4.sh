@@ -15,7 +15,9 @@ else
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_OPENGL_X11=ON)
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_RAYTRACER_X11=ON)
 fi
-
+if [[ "${target_platform}" == "osx-64" ]]; then
+    export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+fi
 if [[ ${DEBUG_C:-no} == yes ]]; then
   CMAKE_BUILD_TYPE=Debug
 else
@@ -34,7 +36,7 @@ cmake                                                          \
       -DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"                 \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}"                       \
       -DBUILD_SHARED_LIBS=ON                                   \
-      -DGEANT4_BUILD_CXXSTD=17                                 \
+      -DCMAKE_CXX_STANDARD=17                                 \
       -DGEANT4_BUILD_MULTITHREADED=ON                          \
       -DGEANT4_BUILD_TLS_MODEL=global-dynamic                  \
       -DGEANT4_INSTALL_DATA=OFF                                \

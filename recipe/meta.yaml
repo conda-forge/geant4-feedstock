@@ -1,5 +1,5 @@
 {% set name = "geant4" %}
-{% set version = "10.7.3" %}
+{% set version = "11.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Geant4/geant4/archive/v{{ version }}.tar.gz
-  sha256: 8ee2892529d16f60cc5f08d984ab13fb74e1566ae85a3f7e86a94ab474e93568
+  sha256: 98959447637fe7acc52b532e39906e6109845f9df11bb2a7439e6024a4c74e33
 
 build:
   number: 0
@@ -35,7 +35,7 @@ requirements:
   host:
     - python
     - boost
-    - clhep =2.4.4.0
+    - clhep =2.4.5.1
     - expat
     - freetype
     - libglu  # [linux]
@@ -62,11 +62,11 @@ requirements:
     # GEANT4 data packages, versions are taken from:
     # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/Geant4DatasetDefinitions.cmake
     - geant4-data-abla =3.1
-    - geant4-data-emlow =7.13
+    - geant4-data-emlow =8.0
     - geant4-data-ensdfstate =2.3
     - geant4-data-incl =1.0
     - geant4-data-ndl =4.6
-    - geant4-data-particlexs =3.1.1
+    - geant4-data-particlexs =4.0
     - geant4-data-photonevaporation =5.7
     - geant4-data-pii =1.3
     - geant4-data-radioactivedecay =5.6
