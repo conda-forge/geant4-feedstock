@@ -1,5 +1,5 @@
 {% set name = "geant4" %}
-{% set version = "11.0.0" %}
+{% set version = "11.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Geant4/geant4/archive/v{{ version }}.tar.gz
-  sha256: 98959447637fe7acc52b532e39906e6109845f9df11bb2a7439e6024a4c74e33
+  sha256: e7bdcb4ce85987b8d4d77eaee15fb6a8f861faaa5accbd355a7dbf28fdf94318
 
 build:
   number: 0
