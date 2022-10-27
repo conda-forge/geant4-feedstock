@@ -5,7 +5,7 @@ boost:
 c_compiler:
 - clang
 c_compiler_version:
-- '13'
+- '14'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '13'
+- '14'
 expat:
 - '2'
 freetype:
@@ -23,12 +23,8 @@ macos_machine:
 pin_run_as_build:
   boost:
     max_pin: x.x.x
-  freetype:
-    max_pin: x
   python:
     min_pin: x.x
-    max_pin: x.x
-  zlib:
     max_pin: x.x
 python:
 - 3.9.* *_cpython
