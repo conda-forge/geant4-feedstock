@@ -1,5 +1,5 @@
 boost:
-- 1.74.0
+- 1.78.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -23,15 +23,11 @@ freetype:
 pin_run_as_build:
   boost:
     max_pin: x.x.x
-  freetype:
-    max_pin: x
   python:
     min_pin: x.x
     max_pin: x.x
-  zlib:
-    max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.9.* *_73_pypy
 qt_main:
 - '5.15'
 target_platform:
