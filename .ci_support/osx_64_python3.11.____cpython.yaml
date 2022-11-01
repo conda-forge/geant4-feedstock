@@ -1,41 +1,37 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 boost:
-- 1.74.0
+- 1.78.0
 c_compiler:
-- gcc
+- clang
 c_compiler_version:
-- '10'
-cdt_name:
-- cos6
+- '14'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
+- clangxx
 cxx_compiler_version:
-- '10'
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- '14'
 expat:
 - '2'
 freetype:
 - '2'
+macos_machine:
+- x86_64-apple-darwin13.4.0
 pin_run_as_build:
   boost:
     max_pin: x.x.x
-  freetype:
-    max_pin: x
   python:
     min_pin: x.x
     max_pin: x.x
-  zlib:
-    max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.11.* *_cpython
 qt_main:
 - '5.15'
 target_platform:
-- linux-64
+- osx-64
 xerces_c:
 - '3.2'
 zip_keys:
