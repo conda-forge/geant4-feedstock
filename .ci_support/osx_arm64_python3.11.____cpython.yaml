@@ -1,5 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '11.0'
 boost:
 - 1.78.0
 c_compiler:
@@ -19,7 +19,7 @@ expat:
 freetype:
 - '2'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -27,11 +27,11 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.9.* *_cpython
+- 3.11.* *_cpython
 qt_main:
 - '5.15'
 target_platform:
-- osx-64
+- osx-arm64
 xerces_c:
 - '3.2'
 zip_keys:
