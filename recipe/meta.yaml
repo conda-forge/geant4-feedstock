@@ -49,7 +49,6 @@ requirements:
     - zlib
   run:
     - python
-    - libboost-python-devel
     - libglu  # [linux]
     - xorg-libx11
     - xorg-libxmu
@@ -81,6 +80,8 @@ test:
     - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    # CMake wants the metadata, otherwise it picks up too-old version from SDK
+    - zlib  # [osx]
   commands:
     - geant4-config --version
     - $RECIPE_DIR/test_geant4.sh
