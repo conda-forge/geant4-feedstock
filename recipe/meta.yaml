@@ -10,7 +10,7 @@ source:
   sha256: 32c9b35b875dec5598e7c3de1350e967070c87f0e598da1055c98cfee1bcdc90
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script: ${RECIPE_DIR}/build_geant4.sh
   run_exports:
@@ -36,7 +36,7 @@ requirements:
     - {{ cdt('libxext') }}     # [linux]
   host:
     - python
-    - boost
+    - libboost-python-devel
     - clhep =2.4.5.1
     - expat
     - freetype
@@ -49,7 +49,6 @@ requirements:
     - zlib
   run:
     - python
-    - boost
     - libglu  # [linux]
     - xorg-libx11
     - xorg-libxmu
@@ -81,6 +80,8 @@ test:
     - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    # CMake wants the metadata, otherwise it picks up too-old version from SDK
+    - zlib  # [osx]
   commands:
     - geant4-config --version
     - $RECIPE_DIR/test_geant4.sh
