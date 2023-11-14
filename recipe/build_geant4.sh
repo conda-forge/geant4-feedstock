@@ -49,7 +49,6 @@ cmake                                                          \
       -DGEANT4_USE_SYSTEM_CLHEP=ON                             \
       -DGEANT4_USE_SYSTEM_EXPAT=ON                             \
       -DGEANT4_USE_SYSTEM_ZLIB=ON                              \
-      -DGEANT4_USE_PYTHON=ON                                   \
       "${CMAKE_PLATFORM_FLAGS[@]}"                             \
       "${SRC_DIR}"
 
