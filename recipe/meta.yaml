@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/Geant4/geant4/archive/v{{ version }}.tar.gz
-  sha256: 5d9a05d4ccf8b975649eab1d615fc1b8dce5937e01ab9e795bffd04149240db6
+  sha256: e3fcd2a5cbd050c06eb8d76b8076735a2c28cb77acf667c2650ebe195e674c29
 
 build:
   number: 0
