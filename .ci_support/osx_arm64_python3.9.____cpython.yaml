@@ -4,6 +4,10 @@ c_compiler:
 - clang
 c_compiler_version:
 - '16'
+c_stdlib:
+- macosx_deployment_target
+c_stdlib_version:
+- '11.0'
 channel_sources:
 - conda-forge
 channel_targets:
@@ -17,7 +21,7 @@ expat:
 freetype:
 - '2'
 libboost_python_devel:
-- '1.82'
+- '1.84'
 macos_machine:
 - arm64-apple-darwin20.0.0
 pin_run_as_build:
