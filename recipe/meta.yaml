@@ -10,7 +10,7 @@ source:
   sha256: 0b0cfce14e9143079c4440d27ee21f889c4c4172ac5ee7586746b940ffcf812a
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script: ${RECIPE_DIR}/build_geant4.sh
   run_exports:
@@ -63,11 +63,11 @@ requirements:
     - xorg-libxfixes  # [linux]
     # GEANT4 data packages, versions are taken from:
     # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/Geant4DatasetDefinitions.cmake
-    - geant4-data-abla =3.1
-    - geant4-data-emlow =8.2
+    - geant4-data-abla =3.3
+    - geant4-data-emlow =8.5
     - geant4-data-ensdfstate =2.3
-    - geant4-data-incl =1.0
-    - geant4-data-ndl =4.7
+    - geant4-data-incl =1.2
+    - geant4-data-ndl =4.7.1
     - geant4-data-particlexs =4.0
     - geant4-data-photonevaporation =5.7
     - geant4-data-pii =1.3
