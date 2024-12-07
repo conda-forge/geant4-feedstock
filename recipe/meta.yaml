@@ -38,7 +38,8 @@ requirements:
   host:
     - python
     - libboost-python-devel
-    - clhep =2.4.6.2
+    #NOTE: Remember to consult release notes for correct clhep version
+    - clhep =2.4.7.1
     - expat
     - freetype
     - libglu  # [linux]
