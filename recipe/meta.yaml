@@ -76,7 +76,7 @@ requirements:
     - geant4-data-radioactivedecay =6.1.2
     - geant4-data-realsurface =2.2.0
     - geant4-data-saiddata =2.0.0
-    #FIXME: We need a new package for this: - geant4-data-channeling =1.0.0
+    - geant4-data-channeling =1.0.0
 
 test:
   requires:
