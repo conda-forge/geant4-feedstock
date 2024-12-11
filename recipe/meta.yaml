@@ -28,13 +28,13 @@ requirements:
     - cmake
     - make  # [unix]
     - sed
-    # For OpenGL: https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
-    - {{ cdt('libxext') }}     # [linux]
+#    # For OpenGL: https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
+#    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+#    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+#    - {{ cdt('libselinux') }}  # [linux]
+#    - {{ cdt('libxdamage') }}  # [linux]
+#    - {{ cdt('libxxf86vm') }}  # [linux]
+#    - {{ cdt('libxext') }}     # [linux]
   host:
     - python
     - libboost-python-devel
@@ -49,18 +49,20 @@ requirements:
     - xorg-libxfixes
     - xorg-libxmu
     - zlib
+    - libgl-devel #TK test
   run:
     - python
     - libglu  # [linux]
     - xorg-libx11
     - xorg-libxmu
-    # Anything that builds against GEANT4 will need these, even if Qt/OpenGL isn't actually being used
-    # As the solution to the errors isn't obvious, add them to the runtime dependencies
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
+    - libgl-devel #TK test
+#    # Anything that builds against GEANT4 will need these, even if Qt/OpenGL isn't actually being used
+#    # As the solution to the errors isn't obvious, add them to the runtime dependencies
+#    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+#    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+#    - {{ cdt('libselinux') }}  # [linux]
+#    - {{ cdt('libxdamage') }}  # [linux]
+#    - {{ cdt('libxxf86vm') }}  # [linux]
     - xorg-libxfixes  # [linux]
     # GEANT4 data packages, versions are taken from:
     # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/G4DatasetDefinitions.cmake
@@ -110,3 +112,4 @@ extra:
   recipe-maintainers:
     - chrisburr
     - tkittel
+xorg-x11-server-Xorg
