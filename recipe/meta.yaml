@@ -49,13 +49,13 @@ requirements:
     - xorg-libxfixes
     - xorg-libxmu
     - zlib
-    - libgl-devel [ linux ]
+    - libgl-devel  # [linux]
   run:
     - python
     - libglu  # [linux]
     - xorg-libx11
     - xorg-libxmu
-    - libgl-devel [ linux ]
+    - libgl-devel  # [linux]
 #    # Anything that builds against GEANT4 will need these, even if Qt/OpenGL isn't actually being used
 #    # As the solution to the errors isn't obvious, add them to the runtime dependencies
 #    - {{ cdt('mesa-libgl-devel') }}  # [linux]
