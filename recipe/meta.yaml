@@ -10,7 +10,7 @@ source:
   sha256: e3fcd2a5cbd050c06eb8d76b8076735a2c28cb77acf667c2650ebe195e674c29
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
   script: ${RECIPE_DIR}/build_geant4.sh
   run_exports:
@@ -28,18 +28,20 @@ requirements:
     - cmake
     - make  # [unix]
     - sed
-    # For OpenGL: https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
-    - {{ cdt('libxext') }}     # [linux]
+#    # For OpenGL: https://conda-forge.org/docs/maintainer/knowledge_base.html#libgl
+#    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+#    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+#    - {{ cdt('libselinux') }}  # [linux]
+#    - {{ cdt('libxdamage') }}  # [linux]
+#    - {{ cdt('libxxf86vm') }}  # [linux]
+#    - {{ cdt('libxext') }}     # [linux]
   host:
     - python
     - libboost-python-devel
+#NOTE: Remember to consult release notes for correct clhep version
     - clhep =2.4.6.2
     - expat
+    - zlib
     - freetype
     - libglu  # [linux]
     - qt-main
@@ -47,19 +49,23 @@ requirements:
     - xorg-libx11
     - xorg-libxfixes
     - xorg-libxmu
-    - zlib
+    - libgl-devel  # [linux]
   run:
     - python
+    - expat
+    - zlib
     - libglu  # [linux]
     - xorg-libx11
     - xorg-libxmu
+    - libgl-devel  # [linux]
+
     # Anything that builds against GEANT4 will need these, even if Qt/OpenGL isn't actually being used
-    # As the solution to the errors isn't obvious, add them to the runtime dependencies
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
-    - {{ cdt('mesa-dri-drivers') }}  # [linux]
-    - {{ cdt('libselinux') }}  # [linux]
-    - {{ cdt('libxdamage') }}  # [linux]
-    - {{ cdt('libxxf86vm') }}  # [linux]
+#    # As the solution to the errors isn't obvious, add them to the runtime dependencies
+#    - {{ cdt('mesa-libgl-devel') }}  # [linux]
+#    - {{ cdt('mesa-dri-drivers') }}  # [linux]
+#    - {{ cdt('libselinux') }}  # [linux]
+#    - {{ cdt('libxdamage') }}  # [linux]
+#    - {{ cdt('libxxf86vm') }}  # [linux]
     - xorg-libxfixes  # [linux]
     # GEANT4 data packages, versions are taken from:
     # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/Geant4DatasetDefinitions.cmake
@@ -83,8 +89,6 @@ test:
     - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    # CMake wants the metadata, otherwise it picks up too-old version from SDK
-    - zlib  # [osx]
   commands:
     - geant4-config --version
     - $RECIPE_DIR/test_geant4.sh
