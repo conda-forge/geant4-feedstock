@@ -46,6 +46,7 @@ cmake                                                          \
       -DGEANT4_USE_FREETYPE=ON                                 \
       -DGEANT4_USE_GDML=ON                                     \
       -DGEANT4_USE_QT=ON                                       \
+      -DGEANT4_USE_HDF5=ON                                     \
       -DGEANT4_USE_SYSTEM_CLHEP=ON                             \
       -DGEANT4_USE_SYSTEM_EXPAT=ON                             \
       -DGEANT4_USE_SYSTEM_ZLIB=ON                              \
