@@ -22,6 +22,8 @@ expat:
 - '2'
 freetype:
 - '2'
+hdf5:
+- 1.14.3
 libboost_python_devel:
 - '1.86'
 macos_machine:
