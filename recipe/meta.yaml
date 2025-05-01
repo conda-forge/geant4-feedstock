@@ -55,6 +55,7 @@ requirements:
     - expat
     - zlib
     - libglu  # [linux]
+    - freetype  # [unix]
     - xorg-libx11
     - xorg-libxmu
     - libgl-devel  # [linux]
