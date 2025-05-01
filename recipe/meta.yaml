@@ -10,7 +10,7 @@ source:
   sha256: 41b41e64188a43a63f05435396e2587ec48eba87aa9489d3bcfb174c53688b65
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script: ${RECIPE_DIR}/build_geant4.sh
   run_exports:
@@ -55,6 +55,7 @@ requirements:
     - expat
     - zlib
     - libglu  # [linux]
+    - freetype  # [unix]
     - xorg-libx11
     - xorg-libxmu
     - libgl-devel  # [linux]
