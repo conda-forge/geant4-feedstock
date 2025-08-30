@@ -10,7 +10,7 @@ source:
   sha256: 7c9e4bd65cc3f4fd525cd35c50c5376f131805b2dce622fcdf19f63ff78ad373
 
 build:
-  number: 3
+  number: 4
   skip: true  # [win]
   script: ${RECIPE_DIR}/build_geant4.sh
   run_exports:
