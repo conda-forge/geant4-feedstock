@@ -1,0 +1,25 @@
+From 6096ae57ecc56e57bb59a1c9870cbd522031a5f4 Mon Sep 17 00:00:00 2001
+From: Thomas Kittelmann <thomas.kittelmann@ess.eu>
+Date: Mon, 3 Nov 2025 08:52:57 +0100
+Subject: [PATCH] patch1 for v11.1.3
+
+---
+ source/externals/g4tools/include/tools/wroot/columns.icc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/source/externals/g4tools/include/tools/wroot/columns.icc b/source/externals/g4tools/include/tools/wroot/columns.icc
+index 0df2c16620..af9b15e0ab 100644
+--- a/source/externals/g4tools/include/tools/wroot/columns.icc
++++ b/source/externals/g4tools/include/tools/wroot/columns.icc
+@@ -399,7 +399,7 @@
+   protected:
+     std_vector_column_ref(const std_vector_column_ref& a_from)
+     :icol(a_from)
+-    ,m_branch(a_from.m_barnch)
++    ,m_branch(a_from.m_branch)
+     ,m_ref(a_from.m_ref)
+     ,m_leaf(0)
+     ,m_leaf_count(0)
+-- 
+2.43.0
+

@@ -5,7 +5,7 @@ MACOSX_SDK_VERSION:
 c_compiler:
 - clang
 c_compiler_version:
-- '18'
+- '19'
 c_stdlib:
 - macosx_deployment_target
 c_stdlib_version:
@@ -17,7 +17,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '18'
+- '19'
 expat:
 - '2'
 freetype:
@@ -37,7 +37,7 @@ qt_main:
 target_platform:
 - osx-arm64
 xerces_c:
-- '3.2'
+- '3.3'
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
