@@ -44,7 +44,7 @@ requirements:
     - zlib
     - freetype
     - libglu  # [linux]
-    - qt-main
+    - qt6-main
     - xerces-c
     - hdf5
     - xorg-libx11
