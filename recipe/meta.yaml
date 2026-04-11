@@ -1,5 +1,5 @@
 {% set name = "geant4" %}
-{% set version = "11.3.2" %}
+{% set version = "11.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/Geant4/geant4/archive/v{{ version }}.tar.gz
-  sha256: 7c9e4bd65cc3f4fd525cd35c50c5376f131805b2dce622fcdf19f63ff78ad373
+  sha256: 550111022a72241411ec236265f02eb564302c5e9e45961399be36774da24e6e
 
 build:
-  number: 6
+  number: 0
   skip: true  # [win]
   script: ${RECIPE_DIR}/build_geant4.sh
   run_exports:
@@ -39,7 +39,7 @@ requirements:
     - python
     - libboost-python-devel
     #NOTE: Remember to consult release notes for correct clhep version
-    - clhep =2.4.7.1
+    - clhep =2.4.7.2
     - expat
     - zlib
     - freetype
@@ -73,17 +73,17 @@ requirements:
     # https://github.com/Geant4/geant4/blob/v{{ version }}/cmake/Modules/G4DatasetDefinitions.cmake
     # NB: For robustness, add a trailing ".0" if the version does not have a patch number.
     - geant4-data-abla =3.3.0
-    - geant4-data-emlow =8.6.1
+    - geant4-data-emlow =8.8.0
     - geant4-data-ensdfstate =3.0.0
-    - geant4-data-incl =1.2.0
+    - geant4-data-incl =1.3.0
     - geant4-data-ndl =4.7.1
-    - geant4-data-particlexs =4.1.0
-    - geant4-data-photonevaporation =6.1.0
+    - geant4-data-particlexs =4.2.0
+    - geant4-data-photonevaporation =6.1.2
     - geant4-data-pii =1.3.0
     - geant4-data-radioactivedecay =6.1.2
     - geant4-data-realsurface =2.2.0
     - geant4-data-saiddata =2.0.0
-    - geant4-data-channeling =1.0.0
+    - geant4-data-channeling =2.0.0
 
 test:
   requires:
