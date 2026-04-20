@@ -50,6 +50,7 @@ cmake                                                          \
       -DGEANT4_USE_SYSTEM_CLHEP=ON                             \
       -DGEANT4_USE_SYSTEM_EXPAT=ON                             \
       -DGEANT4_USE_SYSTEM_ZLIB=ON                              \
+      -DQT_QMAKE_EXECUTABLE="${PREFIX}/bin/qmake6"             \
       "${CMAKE_PLATFORM_FLAGS[@]}"                             \
       "${SRC_DIR}"
 
