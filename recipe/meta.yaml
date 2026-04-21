@@ -110,7 +110,7 @@ about:
   dev_url: https://github.com/Geant4/geant4
   doc_url: https://geant4.web.cern.ch/support
   license: LicenseRef-Geant4
-  license_file: LICENSE
+  license_file: src/LICENSE
 
 extra:
   recipe-maintainers:
