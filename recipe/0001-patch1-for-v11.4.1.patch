@@ -1,0 +1,21 @@
+diff --git a/cmake/Modules/G4InterfaceOptions.cmake b/cmake/Modules/G4InterfaceOptions.cmake
+index beac8ea117..3d71b057bc 100644
+--- a/cmake/Modules/G4InterfaceOptions.cmake
++++ b/cmake/Modules/G4InterfaceOptions.cmake
+@@ -197,6 +197,16 @@ if(GEANT4_USE_QT)
+   # Variables for export to GNUmake
+   execute_process(COMMAND ${QT_QMAKE_EXECUTABLE} -query QT_INSTALL_PREFIX OUTPUT_VARIABLE G4QTHOME OUTPUT_STRIP_TRAILING_WHITESPACE)
+   execute_process(COMMAND ${QT_QMAKE_EXECUTABLE} -query QT_INSTALL_LIBS OUTPUT_VARIABLE G4QTLIBPATH OUTPUT_STRIP_TRAILING_WHITESPACE)
++
++  #Patch lines to make G4 11.4.1 work on osx-arm64 in conda-forge where it seems
++  #qmake6 reports an empty string for the two above commands:
++  if ( NOT G4QTHOME )
++    set( G4QTHOME "$PREFIX" )
++  endif()
++  if ( NOT G4QTLIBPATH )
++    set( G4QTLIBPATH "$PREFIX/lib" )
++  endif()
++
+ endif()
+ 
+ # - OpenGL
