@@ -30,6 +30,14 @@ fi
 #sed -r -i -E 's#cmake_minimum_required\(VERSION [0-9]\.[0-9]#cmake_minimum_required(VERSION 3.1#gI' \
 #  $(find examples -name 'CMakeLists.txt')
 
+echo "DEBUG QT Installation!"
+echo "  help:"
+qmake6 -h
+echo "  query QT_INSTALL_PREFIX:"
+qmake6 -query QT_INSTALL_PREFIX
+echo "  query QT_INSTALL_LIBS:"
+qmake6 -query QT_INSTALL_LIBS
+
 test -f "${SRC_DIR}/src/CMakeLists.txt"
 
 mkdir geant4-build
