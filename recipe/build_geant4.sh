@@ -2,11 +2,11 @@
 set -eux
 
 declare -a CMAKE_PLATFORM_FLAGS
-if [[ ${HOST} =~ .*darwin.* ]]; then
-  CMAKE_PLATFORM_FLAGS+=(-DCMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}")
-else
-  CMAKE_PLATFORM_FLAGS+=(-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake")
-fi
+#if [[ ${HOST} =~ .*darwin.* ]]; then
+#  CMAKE_PLATFORM_FLAGS+=(-DCMAKE_OSX_SYSROOT="${CONDA_BUILD_SYSROOT}")
+#else
+#  CMAKE_PLATFORM_FLAGS+=(-DCMAKE_TOOLCHAIN_FILE="${RECIPE_DIR}/cross-linux.cmake")
+#fi
 
 if [[ ${HOST} =~ .*darwin.* ]]; then
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_OPENGL_X11=OFF)
@@ -15,46 +15,60 @@ else
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_OPENGL_X11=ON)
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_RAYTRACER_X11=ON)
 fi
-if [[ "${target_platform}" == "osx-64" ]]; then
-    export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
-fi
-if [[ ${DEBUG_C:-no} == yes ]]; then
-  CMAKE_BUILD_TYPE=Debug
-else
-  CMAKE_BUILD_TYPE=Release
-fi
-
+#if [[ "${target_platform}" == "osx-64" ]]; then
+#    #FIXME: What about osx-arm64 ?
+#    export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+#fi
+#if [[ ${DEBUG_C:-no} == yes ]]; then
+#  CMAKE_BUILD_TYPE=Debug
+#else
+#  CMAKE_BUILD_TYPE=Release
+#fi
+#
 # cmake_minimum_required(VERSION 3.1) is required to compile
 # the examples to compile using conda's compiler packages
-sed -r -i -E 's#cmake_minimum_required\(VERSION [0-9]\.[0-9]#cmake_minimum_required(VERSION 3.1#gI' \
-  $(find examples -name 'CMakeLists.txt')
+#sed -r -i -E 's#cmake_minimum_required\(VERSION [0-9]\.[0-9]#cmake_minimum_required(VERSION 3.1#gI' \
+#  $(find examples -name 'CMakeLists.txt')
+
+echo "DEBUG QT Installation!"
+echo "  help:"
+qmake6 -h
+echo "  query QT_INSTALL_PREFIX:"
+qmake6 -query QT_INSTALL_PREFIX
+echo "  query QT_INSTALL_LIBS:"
+qmake6 -query QT_INSTALL_LIBS
+
+test -f "${SRC_DIR}/src/CMakeLists.txt"
 
 mkdir geant4-build
-cd geant4-build
 
-cmake                                                          \
-      -DCMAKE_BUILD_TYPE="${CMAKE_BUILD_TYPE}"                 \
-      -DCMAKE_INSTALL_PREFIX="${PREFIX}"                       \
-      -DBUILD_SHARED_LIBS=ON                                   \
-      -DCMAKE_CXX_STANDARD=17                                 \
-      -DGEANT4_BUILD_MULTITHREADED=ON                          \
-      -DGEANT4_BUILD_TLS_MODEL=global-dynamic                  \
-      -DGEANT4_INSTALL_DATA=OFF                                \
-      -DGEANT4_INSTALL_DATADIR="${PREFIX}/share/Geant4/data"   \
-      -DGEANT4_INSTALL_EXAMPLES=ON                             \
-      -DGEANT4_INSTALL_PACKAGE_CACHE=OFF                       \
-      -DGEANT4_USE_FREETYPE=ON                                 \
-      -DGEANT4_USE_GDML=ON                                     \
-      -DGEANT4_USE_QT=ON                                       \
-      -DGEANT4_USE_HDF5=ON                                     \
-      -DGEANT4_USE_SYSTEM_CLHEP=ON                             \
-      -DGEANT4_USE_SYSTEM_EXPAT=ON                             \
-      -DGEANT4_USE_SYSTEM_ZLIB=ON                              \
-      "${CMAKE_PLATFORM_FLAGS[@]}"                             \
-      "${SRC_DIR}"
+cmake \
+    -B ./geant4-build \
+    -S "${SRC_DIR}/src" \
+    ${CMAKE_ARGS} \
+    -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+    -DCMAKE_INSTALL_LIBDIR=lib \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DBUILD_SHARED_LIBS=ON                                   \
+    -DCMAKE_CXX_STANDARD=17                                  \
+    -DGEANT4_BUILD_MULTITHREADED=ON                          \
+    -DGEANT4_BUILD_TLS_MODEL=global-dynamic                  \
+    -DGEANT4_INSTALL_DATA=OFF                                \
+    -DGEANT4_INSTALL_DATADIR="${PREFIX}/share/Geant4/data"   \
+    -DGEANT4_INSTALL_EXAMPLES=ON                             \
+    -DGEANT4_INSTALL_PACKAGE_CACHE=OFF                       \
+    -DGEANT4_USE_FREETYPE=ON                                 \
+    -DGEANT4_USE_GDML=ON                                     \
+    -DGEANT4_USE_QT=ON                                       \
+    -DGEANT4_USE_HDF5=ON                                     \
+    -DGEANT4_USE_SYSTEM_CLHEP=ON                             \
+    -DGEANT4_USE_SYSTEM_EXPAT=ON                             \
+    -DGEANT4_USE_SYSTEM_ZLIB=ON                              \
+    -DQT_QMAKE_EXECUTABLE="${PREFIX}/bin/qmake6"             \
+    "${CMAKE_PLATFORM_FLAGS[@]}"
 
-make "-j${CPU_COUNT}" ${VERBOSE_CM:-}
-make install "-j${CPU_COUNT}"
+cmake --build ./geant4-build --config Release --parallel ${CPU_COUNT:-2}
+cmake --install ./geant4-build
 
 # Print the contents of geant4.sh in case of problems
 echo "Contents of ${PREFIX}/bin/geant4.sh is"
