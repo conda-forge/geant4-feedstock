@@ -17,7 +17,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '14'
 docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma9
+- quay.io/condaforge/linux-anvil-aarch64:alma9
 expat:
 - '2'
 freetype:
@@ -31,11 +31,11 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.11.* *_cpython
 qt6_main:
 - '6.10'
 target_platform:
-- linux-64
+- linux-aarch64
 xerces_c:
 - '3.3'
 zip_keys:
