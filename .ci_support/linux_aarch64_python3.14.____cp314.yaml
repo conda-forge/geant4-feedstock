@@ -33,7 +33,7 @@ pin_run_as_build:
 python:
 - 3.14.* *_cp314
 qt6_main:
-- '6.10'
+- '6.11'
 target_platform:
 - linux-aarch64
 xerces_c:
