@@ -247,7 +247,11 @@ outputs:
       # are therefore mutually exclusive; this metapackage is what makes that
       # explicit to the solver, and lets a user or a downstream package pin the
       # choice with e.g. `geant4-qt-mutex=*=noqt_*`.
-      string: ${{ geant4_variant }}_${{ hash }}_${{ build_number }}
+      # No ${{ hash }} here on purpose: the mutex has no variant-dependent
+      # content, so every job producing it emits an identical package and the
+      # first upload wins. That keeps the build string readable and means all
+      # geant4 builds of a given variant share one mutex.
+      string: ${{ geant4_variant }}_${{ build_number }}
       variant:
         down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
         # See the note on geant4-examples: needed so conda-smithy splits the
