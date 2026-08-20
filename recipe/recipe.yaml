@@ -11,6 +11,10 @@ source:
   url: https://github.com/Geant4/geant4/archive/v${{ version }}.tar.gz
   sha256: f381f461e31fdcfccf28a5e48b420d61ba66adbf55d266e3691277bab04eb270
   target_directory: src
+  patches:
+    # g4tools takes the HDF5 1.6 code path on HDF5 2.x because its version
+    # guard only bounds the minor version. Submitted upstream.
+    - patches/0001-g4tools-fix-hdf5-2-version-guard.patch
 
 build:
   number: 1
