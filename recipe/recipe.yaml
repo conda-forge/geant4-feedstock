@@ -25,8 +25,6 @@ build:
   skip: win
 
 outputs:
-  # --------------------------------------------------------------------------
-  # Compiled once per variant; the outputs below select files from it.
   - staging:
       name: geant4-toolkit
     build:
@@ -44,8 +42,6 @@ outputs:
         - if: build_platform != target_platform and geant4_variant == "qt"
           then: qt6-main
       host:
-        # Geant4Config.cmake carries find_dependency(CLHEP ... EXACT); clhep's
-        # run_exports already pin to that granularity, so do not pin by hand.
         - clhep
         - expat
         - freetype
@@ -60,7 +56,6 @@ outputs:
             - xorg-libx11
             - xorg-libxmu
 
-  # --------------------------------------------------------------------------
   - package:
       name: geant4
     inherit: geant4-toolkit
@@ -87,14 +82,9 @@ outputs:
         overdepending_behavior: error
     requirements:
       build:
-        # Required, despite nothing being built here: rattler-build takes the
-        # system libraries the linking checks may ignore from the sysroot in
-        # this output's build deps, which `inherit` does not carry across.
         - ${{ stdlib('c') }}
       run:
         - ${{ pin_subpackage('geant4-qt-mutex', exact=True) }}
-        # Geant4Config.cmake unconditionally calls find_dependency(OpenGL), so
-        # find_package(Geant4) needs the GL headers, not just the runtime libgl.
         - if: linux
           then: libgl-devel
         # GEANT4 data packages, versions are taken from:
@@ -150,8 +140,6 @@ outputs:
             - cmake
             - ninja
           run:
-            # What find_package(Geant4) resolves via find_dependency(), i.e.
-            # what a downstream feedstock needs in its own host section.
             - expat
             - freetype
             - zlib
@@ -168,7 +156,6 @@ outputs:
     about:
       summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
 
-  # --------------------------------------------------------------------------
   - package:
       name: geant4-examples
     build:
