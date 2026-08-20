@@ -184,22 +184,21 @@ outputs:
   - package:
       name: geant4-examples
     build:
-      # The example sources are identical in both Qt variants, so only ship
-      # them from the Qt build rather than uploading two copies of ~95 MB.
-      skip: geant4_variant != "qt"
+      # Every one of the 9047 example files is byte-identical on every platform
+      # (install_examples.sh just copies them out of the tarball), so this is a
+      # noarch package built from a single job rather than four copies of the
+      # same ~95 MB.
+      noarch: generic
+      # conda-smithy prunes noarch outputs from its own meta list on non-noarch
+      # platforms, but never tells rattler-build to skip them, so without this
+      # the package is built once per platform.
+      skip: geant4_variant != "qt" or build_platform != "linux-64"
       variant:
-        # This output does not use hdf5, but conda-smithy only fans a variant
-        # out across CI jobs when *every* output uses it -- it intersects
-        # get_used_loop_vars(force_top_level=True) over the outputs. Without
-        # this, an hdf5 migration builds both hdf5 versions back to back inside
-        # a single job rather than in parallel ones.
-        #
-        # The cost is that while a migration is open this output is built once
-        # per hdf5 version, so two identical copies get uploaded. They differ
-        # only by hash, carry the same dependencies and are interchangeable,
-        # and it reverts to one copy as soon as the migration closes. Skipping
-        # one of them would mean hard-coding an hdf5 version here, which stops
-        # producing the package at all once that version goes away.
+        # conda-smithy only fans a variant out across CI jobs when *every*
+        # output uses it -- it intersects get_used_loop_vars(force_top_level=True)
+        # over the outputs. This output does not care about hdf5, but without
+        # naming it here linux-64 stops splitting the hdf5 migration into
+        # parallel jobs and builds both versions back to back instead.
         use_keys:
           - hdf5
       script:

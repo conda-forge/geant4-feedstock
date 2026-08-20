@@ -25,14 +25,14 @@ and Methods in Physics Research [A 506 (2003) 250-303](http://www.sciencedirect.
 IEEE Transactions on Nuclear Science [53 No. 1 (2006) 270-278](https://ieeexplore.ieee.org/xpls/abs_all.jsp?isnumber=33833&amp;arnumber=1610988&amp;count=33&amp;index=7)
 and Nuclear Instruments and Methods in Physics Research [A 835 (2016) 186-225](http://www.sciencedirect.com/science/article/pii/S0168900216306957).
 
-About geant4-examples
+About geant4-qt-mutex
 ---------------------
 
 Home: https://geant4.web.cern.ch/
 
 Package license: LicenseRef-Geant4
 
-Summary: Basic, extended and advanced example applications for Geant4
+Summary: Metapackage selecting whether geant4 is built with Qt support
 
 Development: https://github.com/Geant4/geant4
 
@@ -46,14 +46,14 @@ and Methods in Physics Research [A 506 (2003) 250-303](http://www.sciencedirect.
 IEEE Transactions on Nuclear Science [53 No. 1 (2006) 270-278](https://ieeexplore.ieee.org/xpls/abs_all.jsp?isnumber=33833&amp;arnumber=1610988&amp;count=33&amp;index=7)
 and Nuclear Instruments and Methods in Physics Research [A 835 (2016) 186-225](http://www.sciencedirect.com/science/article/pii/S0168900216306957).
 
-About geant4-qt-mutex
+About geant4-examples
 ---------------------
 
 Home: https://geant4.web.cern.ch/
 
 Package license: LicenseRef-Geant4
 
-Summary: Metapackage selecting whether geant4 is built with Qt support
+Summary: Basic, extended and advanced example applications for Geant4
 
 Development: https://github.com/Geant4/geant4
 
