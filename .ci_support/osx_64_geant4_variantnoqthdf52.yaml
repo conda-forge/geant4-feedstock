@@ -23,9 +23,8 @@ expat:
 freetype:
 - '2'
 geant4_variant:
-- qt
+- noqt
 hdf5:
-- 1.14.6
 - '2'
 macos_machine:
 - x86_64-apple-darwin13.4.0
