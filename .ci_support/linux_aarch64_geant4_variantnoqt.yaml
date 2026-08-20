@@ -1,13 +1,11 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '14'
+- '15'
 c_stdlib:
 - sysroot
 c_stdlib_version:
 - '2.17'
-cdt_name:
-- conda
 channel_sources:
 - conda-forge
 channel_targets:
@@ -15,29 +13,21 @@ channel_targets:
 cxx_compiler:
 - gxx
 cxx_compiler_version:
-- '14'
+- '15'
 docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma9
+- quay.io/condaforge/linux-anvil-aarch64:alma10
 expat:
 - '2'
 freetype:
 - '2'
-geant4:
-- 11.4.1
+geant4_variant:
+- noqt
 hdf5:
 - 1.14.6
-libboost_python_devel:
-- '1.90'
-pin_run_as_build:
-  python:
-    min_pin: x.x
-    max_pin: x.x
-python:
-- 3.11.* *_cpython
 qt6_main:
 - '6.11'
 target_platform:
-- linux-64
+- linux-aarch64
 xerces_c:
 - '3.3'
 zip_keys:

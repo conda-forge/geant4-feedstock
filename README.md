@@ -3,6 +3,10 @@ About geant4-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/geant4-feedstock/blob/main/LICENSE.txt)
 
+
+About geant4
+------------
+
 Home: https://geant4.web.cern.ch/
 
 Package license: LicenseRef-Geant4
@@ -21,6 +25,47 @@ and Methods in Physics Research [A 506 (2003) 250-303](http://www.sciencedirect.
 IEEE Transactions on Nuclear Science [53 No. 1 (2006) 270-278](https://ieeexplore.ieee.org/xpls/abs_all.jsp?isnumber=33833&amp;arnumber=1610988&amp;count=33&amp;index=7)
 and Nuclear Instruments and Methods in Physics Research [A 835 (2016) 186-225](http://www.sciencedirect.com/science/article/pii/S0168900216306957).
 
+About geant4-examples
+---------------------
+
+Home: https://geant4.web.cern.ch/
+
+Package license: LicenseRef-Geant4
+
+Summary: Basic, extended and advanced example applications for Geant4
+
+Development: https://github.com/Geant4/geant4
+
+Documentation: https://geant4.web.cern.ch/support
+
+Geant4 is a toolkit for the simulation of the passage of particles through
+matter. Its areas of application include high energy, nuclear and
+accelerator physics, as well as studies in medical and space science. The
+three main reference papers for Geant4 are published in Nuclear Instruments
+and Methods in Physics Research [A 506 (2003) 250-303](http://www.sciencedirect.com/science/article/pii/S0168900203013688),
+IEEE Transactions on Nuclear Science [53 No. 1 (2006) 270-278](https://ieeexplore.ieee.org/xpls/abs_all.jsp?isnumber=33833&amp;arnumber=1610988&amp;count=33&amp;index=7)
+and Nuclear Instruments and Methods in Physics Research [A 835 (2016) 186-225](http://www.sciencedirect.com/science/article/pii/S0168900216306957).
+
+About geant4-qt-mutex
+---------------------
+
+Home: https://geant4.web.cern.ch/
+
+Package license: LicenseRef-Geant4
+
+Summary: Metapackage selecting whether geant4 is built with Qt support
+
+Development: https://github.com/Geant4/geant4
+
+Documentation: https://geant4.web.cern.ch/support
+
+Geant4 is a toolkit for the simulation of the passage of particles through
+matter. Its areas of application include high energy, nuclear and
+accelerator physics, as well as studies in medical and space science. The
+three main reference papers for Geant4 are published in Nuclear Instruments
+and Methods in Physics Research [A 506 (2003) 250-303](http://www.sciencedirect.com/science/article/pii/S0168900203013688),
+IEEE Transactions on Nuclear Science [53 No. 1 (2006) 270-278](https://ieeexplore.ieee.org/xpls/abs_all.jsp?isnumber=33833&amp;arnumber=1610988&amp;count=33&amp;index=7)
+and Nuclear Instruments and Methods in Physics Research [A 835 (2016) 186-225](http://www.sciencedirect.com/science/article/pii/S0168900216306957).
 
 Current build status
 ====================
@@ -47,73 +92,31 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>osx_64_python3.10.____cpython</td>
+              <td>osx_64_geant4_variantnoqt</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_geant4_variantnoqt" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.11.____cpython</td>
+              <td>osx_64_geant4_variantqt</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.11.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_geant4_variantqt" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.12.____cpython</td>
+              <td>osx_arm64_geant4_variantnoqt</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.12.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_geant4_variantnoqt" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_python3.13.____cp313</td>
+              <td>osx_arm64_geant4_variantqt</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.14.____cp314</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.14.____cp314" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.10.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.10.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.11.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.11.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.12.____cpython</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.12.____cpython" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.13.____cp313</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.13.____cp313" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64_python3.14.____cp314</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.14.____cp314" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_geant4_variantqt" alt="variant">
                 </a>
               </td>
             </tr>
@@ -130,6 +133,8 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-geant4-green.svg)](https://anaconda.org/conda-forge/geant4) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/geant4.svg)](https://anaconda.org/conda-forge/geant4) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/geant4.svg)](https://anaconda.org/conda-forge/geant4) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/geant4.svg)](https://anaconda.org/conda-forge/geant4) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-geant4--examples-green.svg)](https://anaconda.org/conda-forge/geant4-examples) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/geant4-examples.svg)](https://anaconda.org/conda-forge/geant4-examples) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/geant4-examples.svg)](https://anaconda.org/conda-forge/geant4-examples) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/geant4-examples.svg)](https://anaconda.org/conda-forge/geant4-examples) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-geant4--qt--mutex-green.svg)](https://anaconda.org/conda-forge/geant4-qt-mutex) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/geant4-qt-mutex.svg)](https://anaconda.org/conda-forge/geant4-qt-mutex) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/geant4-qt-mutex.svg)](https://anaconda.org/conda-forge/geant4-qt-mutex) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/geant4-qt-mutex.svg)](https://anaconda.org/conda-forge/geant4-qt-mutex) |
 
 Installing geant4
 =================
@@ -141,31 +146,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `geant4` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
-conda install geant4
+conda install geant4 geant4-examples geant4-qt-mutex
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
-mamba install geant4
+mamba install geant4 geant4-examples geant4-qt-mutex
 ```
 
-It is possible to list all of the versions of `geant4` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add geant4 geant4-examples geant4-qt-mutex
+# for installing globally
+pixi global install geant4 geant4-examples geant4-qt-mutex
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `geant4` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search geant4 --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search geant4 --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search geant4 --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -177,6 +224,8 @@ mamba repoquery whoneeds geant4 --channel conda-forge
 # List dependencies of `geant4`:
 mamba repoquery depends geant4 --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
