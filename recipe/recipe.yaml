@@ -86,6 +86,15 @@ outputs:
         overlinking_behavior: error
         overdepending_behavior: error
     requirements:
+      build:
+        # Not used to build anything -- this output just takes files from the
+        # staging cache. rattler-build derives the set of system libraries the
+        # linking checks are allowed to ignore (libc, libm, libpthread, ...)
+        # from the sysroot package in *this output's* build dependencies, and
+        # inheriting from a staging output does not carry that across. Without
+        # it the allowlist is empty and every glibc library trips
+        # overlinking_behavior: error.
+        - ${{ stdlib('c') }}
       run:
         - ${{ pin_subpackage('geant4-qt-mutex', exact=True) }}
         # Geant4Config.cmake unconditionally calls find_dependency(OpenGL), so
