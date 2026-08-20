@@ -1,0 +1,252 @@
+schema_version: 1
+
+context:
+  version: "11.4.2"
+
+recipe:
+  name: geant4
+  version: ${{ version }}
+
+source:
+  url: https://github.com/Geant4/geant4/archive/v${{ version }}.tar.gz
+  sha256: f381f461e31fdcfccf28a5e48b420d61ba66adbf55d266e3691277bab04eb270
+  target_directory: src
+
+build:
+  # Bumped so these packages outrank the already-published 11.4.2 build 0,
+  # which carried python variants in its build string.
+  number: 1
+  skip: win
+
+outputs:
+  # --------------------------------------------------------------------------
+  # Shared build of the toolkit. Everything that ships compiled artefacts
+  # `inherit`s from this so the (multi-hour) compile only runs once per variant.
+  - staging:
+      name: geant4-toolkit
+    build:
+      script:
+        file: build_geant4
+        env:
+          GEANT4_USE_QT: ${{ "ON" if geant4_variant == "qt" else "OFF" }}
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - cmake
+        - ninja
+        - if: build_platform != target_platform and geant4_variant == "qt"
+          then: qt6-main
+      host:
+        # Geant4 bakes `find_dependency(CLHEP <version> EXACT)` into
+        # Geant4Config.cmake, so the runtime constraint has to be exact. That is
+        # precisely what clhep's own run_exports give us
+        # (pin_subpackage(upper_bound='x.x.x.x')), so do not pin it by hand --
+        # a manual pin here just goes stale.
+        - clhep
+        - expat
+        - freetype
+        - hdf5
+        - xerces-c
+        - zlib
+        - if: geant4_variant == "qt"
+          then: qt6-main
+        - if: linux
+          then:
+            # libgl-devel run_exports libgl, which is what actually gets linked.
+            # The -devel package itself is deliberately *not* a run dependency:
+            # `find_package(Geant4)` unconditionally calls
+            # `find_dependency(OpenGL)`, so a downstream feedstock needs
+            # libgl-devel in its own host section rather than every user getting
+            # development headers at runtime.
+            - libgl-devel
+            - xorg-libx11
+            - xorg-libxmu
+
+  # --------------------------------------------------------------------------
+  - package:
+      name: geant4
+    inherit: geant4-toolkit
+    build:
+      # Encode the variant in the build string so it can be selected explicitly,
+      # e.g. `conda install "geant4=*=noqt_*"`.
+      string: ${{ geant4_variant }}_${{ hash }}_${{ build_number }}
+      variant:
+        # Qt has always been enabled, so keep it as the default the solver
+        # reaches for when nobody expresses a preference.
+        down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
+      files:
+        - bin/geant4-config
+        - bin/geant4.csh
+        - bin/geant4.sh
+        - include/Geant4/**
+        - lib/Geant4-${{ version }}/**
+        - lib/cmake/Geant4/**
+        - lib/libG4*
+        - lib/pkgconfig/G4ptl.pc
+        - share/Geant4/fonts/**
+        - share/Geant4/geant4make/**
+        - share/Geant4/tools.license
+      dynamic_linking:
+        overlinking_behavior: error
+        overdepending_behavior: error
+    requirements:
+      run:
+        - ${{ pin_subpackage('geant4-qt-mutex', exact=True) }}
+        # GEANT4 data packages, versions are taken from:
+        # https://github.com/Geant4/geant4/blob/v${{ version }}/cmake/Modules/G4DatasetDefinitions.cmake
+        # NB: For robustness, add a trailing ".0" if the version does not have a patch number.
+        - geant4-data-abla =3.3.0
+        - geant4-data-channeling =2.0.0
+        - geant4-data-emlow =8.8.0
+        - geant4-data-ensdfstate =3.0.0
+        - geant4-data-incl =1.3.0
+        - geant4-data-ndl =4.7.1
+        - geant4-data-particlexs =4.2.0
+        - geant4-data-photonevaporation =6.1.2
+        - geant4-data-pii =1.3.0
+        - geant4-data-radioactivedecay =6.1.2
+        - geant4-data-realsurface =2.2.0
+        - geant4-data-saiddata =2.0.0
+      run_exports:
+        - ${{ pin_subpackage('geant4', upper_bound='x.x.x') }}
+    tests:
+      - package_contents:
+          strict: true
+          bin:
+            - geant4-config
+          files:
+            exists:
+              - bin/geant4.csh
+              - bin/geant4.sh
+              - include/Geant4/G4Version.hh
+              - include/Geant4/**
+              - lib/Geant4-${{ version }}/**
+              - lib/cmake/Geant4/Geant4Config.cmake
+              - lib/cmake/Geant4/**
+              - lib/libG4*
+              - lib/pkgconfig/G4ptl.pc
+              - share/Geant4/fonts/**
+              - share/Geant4/geant4make/geant4make.sh
+              - share/Geant4/geant4make/**
+              - share/Geant4/tools.license
+              # The CMake smoke-test project below is shipped inside the package
+              # by `tests[].files.recipe`.
+              - etc/conda/test-files/**
+            not_exists:
+              # The examples live in their own package now.
+              - share/Geant4/examples/**
+      - script:
+          file: test_geant4
+          env:
+            GEANT4_USE_QT: ${{ "ON" if geant4_variant == "qt" else "OFF" }}
+        requirements:
+          build:
+            - ${{ compiler('c') }}
+            - ${{ compiler('cxx') }}
+            - ${{ stdlib('c') }}
+            - cmake
+            - ninja
+          run:
+            # Development files that `find_package(Geant4)` pulls in via
+            # find_dependency(). This is the dependency set a downstream
+            # feedstock needs in its own `host` section.
+            - expat
+            - freetype
+            - zlib
+            - if: geant4_variant == "qt"
+              then: qt6-main
+            - if: linux
+              then:
+                - libgl-devel
+                - xorg-libx11
+                - xorg-libxmu
+        files:
+          recipe:
+            - test_cmake/
+    about:
+      summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
+
+  # --------------------------------------------------------------------------
+  - package:
+      name: geant4-examples
+    build:
+      # The example sources are identical in both variants, so only ship them
+      # from the Qt build rather than uploading two copies of ~95 MB.
+      skip: geant4_variant != "qt"
+      script:
+        file: install_examples
+    requirements:
+      run:
+        - ${{ pin_subpackage('geant4', upper_bound='x.x.x') }}
+    tests:
+      - package_contents:
+          strict: true
+          files:
+            exists:
+              - share/Geant4/examples/README.md
+              - share/Geant4/examples/basic/B1/exampleB1.cc
+              - share/Geant4/examples/**
+      - script:
+          file: test_examples
+        requirements:
+          build:
+            - ${{ compiler('c') }}
+            - ${{ compiler('cxx') }}
+            - ${{ stdlib('c') }}
+            - cmake
+            - ninja
+          run:
+            - expat
+            - freetype
+            - zlib
+            - if: geant4_variant == "qt"
+              then: qt6-main
+            - if: linux
+              then:
+                - libgl-devel
+                - xorg-libx11
+                - xorg-libxmu
+    about:
+      summary: Basic, extended and advanced example applications for Geant4
+
+  # --------------------------------------------------------------------------
+  - package:
+      name: geant4-qt-mutex
+    build:
+      # Qt support is compiled into libG4interfaces, libG4OpenGL, libG4RayTracer
+      # and libG4ToolsSG, so it cannot be split into its own package -- the
+      # toolkit is built twice instead. The two builds write the same files and
+      # are therefore mutually exclusive; this metapackage is what makes that
+      # explicit to the solver, and lets a user or a downstream package pin the
+      # choice with e.g. `geant4-qt-mutex=*=noqt_*`.
+      string: ${{ geant4_variant }}_${{ build_number }}
+      variant:
+        down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
+    tests:
+      - package_contents:
+          strict: true
+    about:
+      summary: Metapackage selecting whether geant4 is built with Qt support
+
+about:
+  homepage: https://geant4.web.cern.ch/
+  repository: https://github.com/Geant4/geant4
+  documentation: https://geant4.web.cern.ch/support
+  license: LicenseRef-Geant4
+  license_file: src/LICENSE
+  summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
+  description: |
+    Geant4 is a toolkit for the simulation of the passage of particles through
+    matter. Its areas of application include high energy, nuclear and
+    accelerator physics, as well as studies in medical and space science. The
+    three main reference papers for Geant4 are published in Nuclear Instruments
+    and Methods in Physics Research [A 506 (2003) 250-303](http://www.sciencedirect.com/science/article/pii/S0168900203013688),
+    IEEE Transactions on Nuclear Science [53 No. 1 (2006) 270-278](https://ieeexplore.ieee.org/xpls/abs_all.jsp?isnumber=33833&amp;arnumber=1610988&amp;count=33&amp;index=7)
+    and Nuclear Instruments and Methods in Physics Research [A 835 (2016) 186-225](http://www.sciencedirect.com/science/article/pii/S0168900216306957).
+
+extra:
+  recipe-maintainers:
+    - chrisburr
+    - tkittel
