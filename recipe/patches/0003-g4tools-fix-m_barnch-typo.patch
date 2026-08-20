@@ -1,0 +1,37 @@
+From 858c40007f0a07d5f1b036471c1bc04f2035c177 Mon Sep 17 00:00:00 2001
+From: c <a@b>
+Date: Thu, 20 Aug 2026 22:47:10 +0200
+Subject: [PATCH] g4tools: fix m_barnch typo in std_vector_column_ref copy
+ constructor
+
+The copy constructor initialises m_branch from a_from.m_barnch, which is not a
+member. It is protected and never instantiated, so compilers that only
+diagnose template bodies on instantiation never saw it. GCC's -Wtemplate-body,
+on by default since GCC 14, reports it eagerly and the build fails:
+
+  columns.icc:402:22: error: 'const class tools::wroot::ntuple::
+  std_vector_column_ref<T>' has no member named 'm_barnch';
+  did you mean 'm_branch'?
+
+Backported from Geant4 11.x, where the surrounding column_ref and
+column_string_ref copy constructors already read a_from.m_branch.
+---
+ source/analysis/g4tools/include/tools/wroot/columns.icc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/source/analysis/g4tools/include/tools/wroot/columns.icc b/source/analysis/g4tools/include/tools/wroot/columns.icc
+index 0df2c16..af9b15e 100644
+--- a/source/analysis/g4tools/include/tools/wroot/columns.icc
++++ b/source/analysis/g4tools/include/tools/wroot/columns.icc
+@@ -399,7 +399,7 @@
+   protected:
+     std_vector_column_ref(const std_vector_column_ref& a_from)
+     :icol(a_from)
+-    ,m_branch(a_from.m_barnch)
++    ,m_branch(a_from.m_branch)
+     ,m_ref(a_from.m_ref)
+     ,m_leaf(0)
+     ,m_leaf_count(0)
+-- 
+2.55.0
+

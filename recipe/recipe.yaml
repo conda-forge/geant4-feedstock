@@ -13,6 +13,7 @@ source:
   target_directory: src
   patches:
     - patches/0002-geant4-config-honour-dataset-env-vars.patch
+    - patches/0003-g4tools-fix-m_barnch-typo.patch
 
 build:
   number: 0
