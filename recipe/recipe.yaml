@@ -54,12 +54,6 @@ outputs:
           then: qt6-main
         - if: linux
           then:
-            # libgl-devel run_exports libgl, which is what actually gets linked.
-            # The -devel package itself is deliberately *not* a run dependency:
-            # `find_package(Geant4)` unconditionally calls
-            # `find_dependency(OpenGL)`, so a downstream feedstock needs
-            # libgl-devel in its own host section rather than every user getting
-            # development headers at runtime.
             - libgl-devel
             - xorg-libx11
             - xorg-libxmu
@@ -94,6 +88,15 @@ outputs:
     requirements:
       run:
         - ${{ pin_subpackage('geant4-qt-mutex', exact=True) }}
+        # Geant4Config.cmake unconditionally calls find_dependency(OpenGL), so
+        # every `find_package(Geant4)` needs the GL headers and the libGL.so
+        # symlink, not just the runtime libgl that gets linked. Geant4 is a
+        # toolkit people compile against, so ship them rather than breaking
+        # cmake for anyone who just `conda install geant4`. This is not
+        # overdepending: libgl-devel's libGL.so is a symlink onto libgl's
+        # libGL.so.1, which is linked.
+        - if: linux
+          then: libgl-devel
         # GEANT4 data packages, versions are taken from:
         # https://github.com/Geant4/geant4/blob/v${{ version }}/cmake/Modules/G4DatasetDefinitions.cmake
         # NB: For robustness, add a trailing ".0" if the version does not have a patch number.
