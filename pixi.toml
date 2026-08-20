@@ -1,0 +1,116 @@
+# -*- mode: toml -*-
+# This file was generated automatically from conda-smithy. To update this configuration,
+# update the conda-forge.yml and/or the recipe/meta.yaml.
+"$schema" = "https://pixi.sh/v0.59.0/schema/manifest/schema.json"
+
+[workspace]
+name = "geant4-feedstock"
+version = "2026.8.9"  # conda-smithy version used to generate this file
+description = "Pixi configuration for conda-forge/geant4-feedstock"
+authors = ["@conda-forge/geant4"]
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64"]
+requires-pixi = ">=0.59.0"
+
+[tasks.build-locally]
+cmd = "pixi exec --force-reinstall --list='^python$' python ./build-locally.py"
+description = "Build packages locally using the same setup scripts used in conda-forge's CI"
+[tasks.smithy]
+cmd = "pixi exec --force-reinstall --list='^conda-smithy$' conda-smithy"
+description = "Run conda-smithy. Pass necessary arguments."
+[tasks.rerender]
+cmd = "pixi exec --force-reinstall --list='^conda-smithy$' conda-smithy rerender"
+description = "Rerender the feedstock."
+
+[tasks.lint]
+cmd = "pixi exec --list='^conda-smithy$' conda-smithy lint --conda-forge recipe"
+description = "Lint the feedstock recipe"
+
+[feature.build.dependencies]
+conda-build = ">=26.3"
+conda-forge-ci-setup = "4.*"
+rattler-build = "*"
+
+[feature.build.tasks.inspect-all]
+cmd = "inspect_artifacts --all-packages"
+description = "List contents of all packages found in rattler-build build directory."
+[feature.build.tasks.build]
+cmd = "rattler-build build --recipe recipe"
+description = "Build geant4-feedstock directly (without setup scripts), no particular variant specified"
+[feature.build.tasks."build-linux_64_geant4_variantnoqt"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantnoqt.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqt directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantnoqt"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantnoqt.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqt directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantnoqt"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantnoqt.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantnoqt"
+[feature.build.tasks."build-linux_64_geant4_variantqt"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantqt.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqt directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantqt"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantqt.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqt directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantqt"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantqt.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantqt"
+[feature.build.tasks."build-linux_aarch64_geant4_variantnoqt"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqt.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqt directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantnoqt"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqt.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqt directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantnoqt"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantnoqt.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantnoqt"
+[feature.build.tasks."build-linux_aarch64_geant4_variantqt"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqt.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqt directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantqt"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqt.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqt directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantqt"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantqt.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantqt"
+[feature.build.tasks."build-osx_64_geant4_variantnoqt"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantnoqt.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqt directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantnoqt"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantnoqt.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqt directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantnoqt"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantnoqt.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantnoqt"
+[feature.build.tasks."build-osx_64_geant4_variantqt"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantqt.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqt directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantqt"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantqt.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqt directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantqt"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantqt.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantqt"
+[feature.build.tasks."build-osx_arm64_geant4_variantnoqt"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqt.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqt directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantnoqt"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqt.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqt directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantnoqt"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantnoqt.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantnoqt"
+[feature.build.tasks."build-osx_arm64_geant4_variantqt"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantqt.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqt directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantqt"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantqt.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqt directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantqt"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantqt.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantqt"
+
+[environments]
+build = ["build"]
+# This is a copy of 'build', to be enabled by build_steps.sh during Docker builds
+# __PLATFORM_SPECIFIC_ENV__ = ["build"]
