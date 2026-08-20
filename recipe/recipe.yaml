@@ -15,6 +15,10 @@ source:
     # g4tools takes the HDF5 1.6 code path on HDF5 2.x because its version
     # guard only bounds the minor version. Submitted upstream.
     - patches/0001-g4tools-fix-hdf5-2-version-guard.patch
+    # Without this, geant4-config --check-datasets looks only at the paths
+    # baked in at configure time and reports NOTFOUND for datasets supplied
+    # through G4LEDATA and friends, as the geant4-data-* packages do.
+    - patches/0002-geant4-config-honour-dataset-env-vars.patch
 
 build:
   number: 1

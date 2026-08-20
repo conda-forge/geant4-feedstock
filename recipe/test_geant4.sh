@@ -48,6 +48,11 @@ while read -r ds_name ds_envvar ds_path; do
 done < datasets.txt
 test "${datasets_ok}" -eq 1
 
+# Patch 0002 makes --check-datasets resolve through those same environment
+# variables, so nothing should be reported NOTFOUND.
+geant4-config --check-datasets
+! geant4-config --check-datasets | grep -q NOTFOUND
+
 cmake -G Ninja -B test-build -S test_cmake ${CMAKE_ARGS:-}
 cmake --build test-build
 ./test-build/geant4-conda-test
