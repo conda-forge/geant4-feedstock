@@ -26,6 +26,7 @@ geant4_variant:
 - qt
 hdf5:
 - 1.14.6
+- '2'
 macos_machine:
 - arm64-apple-darwin20.0.0
 qt6_main:

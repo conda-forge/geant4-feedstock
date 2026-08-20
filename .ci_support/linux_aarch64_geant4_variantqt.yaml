@@ -24,6 +24,7 @@ geant4_variant:
 - qt
 hdf5:
 - 1.14.6
+- '2'
 qt6_main:
 - '6.11'
 target_platform:
