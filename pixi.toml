@@ -37,150 +37,366 @@ description = "List contents of all packages found in rattler-build build direct
 [feature.build.tasks.build]
 cmd = "rattler-build build --recipe recipe"
 description = "Build geant4-feedstock directly (without setup scripts), no particular variant specified"
-[feature.build.tasks."build-linux_64_geant4_variantnoqthdf51.14.6"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantnoqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."debug-linux_64_geant4_variantnoqthdf51.14.6"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantnoqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."inspect-linux_64_geant4_variantnoqthdf51.14.6"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantnoqthdf51.14.6.yaml"
-description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantnoqthdf51.14.6"
-[feature.build.tasks."build-linux_64_geant4_variantnoqthdf52"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantnoqthdf52.yaml"
-description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqthdf52 directly (without setup scripts)"
-[feature.build.tasks."debug-linux_64_geant4_variantnoqthdf52"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantnoqthdf52.yaml"
-description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqthdf52 directly (without setup scripts)"
-[feature.build.tasks."inspect-linux_64_geant4_variantnoqthdf52"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantnoqthdf52.yaml"
-description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantnoqthdf52"
-[feature.build.tasks."build-linux_64_geant4_variantqthdf51.14.6"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant linux_64_geant4_variantqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."debug-linux_64_geant4_variantqthdf51.14.6"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant linux_64_geant4_variantqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."inspect-linux_64_geant4_variantqthdf51.14.6"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantqthdf51.14.6.yaml"
-description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantqthdf51.14.6"
-[feature.build.tasks."build-linux_64_geant4_variantqthdf52"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantqthdf52.yaml"
-description = "Build geant4-feedstock with variant linux_64_geant4_variantqthdf52 directly (without setup scripts)"
-[feature.build.tasks."debug-linux_64_geant4_variantqthdf52"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantqthdf52.yaml"
-description = "Build geant4-feedstock with variant linux_64_geant4_variantqthdf52 directly (without setup scripts)"
-[feature.build.tasks."inspect-linux_64_geant4_variantqthdf52"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantqthdf52.yaml"
-description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantqthdf52"
-[feature.build.tasks."build-linux_aarch64_geant4_variantnoqthdf51.14.6"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."debug-linux_aarch64_geant4_variantnoqthdf51.14.6"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."inspect-linux_aarch64_geant4_variantnoqthdf51.14.6"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantnoqthdf51.14.6.yaml"
-description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantnoqthdf51.14.6"
-[feature.build.tasks."build-linux_aarch64_geant4_variantnoqthdf52"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqthdf52.yaml"
-description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqthdf52 directly (without setup scripts)"
-[feature.build.tasks."debug-linux_aarch64_geant4_variantnoqthdf52"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqthdf52.yaml"
-description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqthdf52 directly (without setup scripts)"
-[feature.build.tasks."inspect-linux_aarch64_geant4_variantnoqthdf52"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantnoqthdf52.yaml"
-description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantnoqthdf52"
-[feature.build.tasks."build-linux_aarch64_geant4_variantqthdf51.14.6"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."debug-linux_aarch64_geant4_variantqthdf51.14.6"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."inspect-linux_aarch64_geant4_variantqthdf51.14.6"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantqthdf51.14.6.yaml"
-description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantqthdf51.14.6"
-[feature.build.tasks."build-linux_aarch64_geant4_variantqthdf52"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqthdf52.yaml"
-description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqthdf52 directly (without setup scripts)"
-[feature.build.tasks."debug-linux_aarch64_geant4_variantqthdf52"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqthdf52.yaml"
-description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqthdf52 directly (without setup scripts)"
-[feature.build.tasks."inspect-linux_aarch64_geant4_variantqthdf52"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantqthdf52.yaml"
-description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantqthdf52"
-[feature.build.tasks."build-osx_64_geant4_variantnoqthdf51.14.6"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantnoqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."debug-osx_64_geant4_variantnoqthdf51.14.6"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantnoqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."inspect-osx_64_geant4_variantnoqthdf51.14.6"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantnoqthdf51.14.6.yaml"
-description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantnoqthdf51.14.6"
-[feature.build.tasks."build-osx_64_geant4_variantnoqthdf52"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantnoqthdf52.yaml"
-description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqthdf52 directly (without setup scripts)"
-[feature.build.tasks."debug-osx_64_geant4_variantnoqthdf52"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantnoqthdf52.yaml"
-description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqthdf52 directly (without setup scripts)"
-[feature.build.tasks."inspect-osx_64_geant4_variantnoqthdf52"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantnoqthdf52.yaml"
-description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantnoqthdf52"
-[feature.build.tasks."build-osx_64_geant4_variantqthdf51.14.6"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant osx_64_geant4_variantqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."debug-osx_64_geant4_variantqthdf51.14.6"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant osx_64_geant4_variantqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."inspect-osx_64_geant4_variantqthdf51.14.6"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantqthdf51.14.6.yaml"
-description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantqthdf51.14.6"
-[feature.build.tasks."build-osx_64_geant4_variantqthdf52"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantqthdf52.yaml"
-description = "Build geant4-feedstock with variant osx_64_geant4_variantqthdf52 directly (without setup scripts)"
-[feature.build.tasks."debug-osx_64_geant4_variantqthdf52"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantqthdf52.yaml"
-description = "Build geant4-feedstock with variant osx_64_geant4_variantqthdf52 directly (without setup scripts)"
-[feature.build.tasks."inspect-osx_64_geant4_variantqthdf52"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantqthdf52.yaml"
-description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantqthdf52"
-[feature.build.tasks."build-osx_arm64_geant4_variantnoqthdf51.14.6"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."debug-osx_arm64_geant4_variantnoqthdf51.14.6"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."inspect-osx_arm64_geant4_variantnoqthdf51.14.6"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantnoqthdf51.14.6.yaml"
-description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantnoqthdf51.14.6"
-[feature.build.tasks."build-osx_arm64_geant4_variantnoqthdf52"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqthdf52.yaml"
-description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqthdf52 directly (without setup scripts)"
-[feature.build.tasks."debug-osx_arm64_geant4_variantnoqthdf52"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqthdf52.yaml"
-description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqthdf52 directly (without setup scripts)"
-[feature.build.tasks."inspect-osx_arm64_geant4_variantnoqthdf52"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantnoqthdf52.yaml"
-description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantnoqthdf52"
-[feature.build.tasks."build-osx_arm64_geant4_variantqthdf51.14.6"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."debug-osx_arm64_geant4_variantqthdf51.14.6"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantqthdf51.14.6.yaml"
-description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqthdf51.14.6 directly (without setup scripts)"
-[feature.build.tasks."inspect-osx_arm64_geant4_variantqthdf51.14.6"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantqthdf51.14.6.yaml"
-description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantqthdf51.14.6"
-[feature.build.tasks."build-osx_arm64_geant4_variantqthdf52"]
-cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantqthdf52.yaml"
-description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqthdf52 directly (without setup scripts)"
-[feature.build.tasks."debug-osx_arm64_geant4_variantqthdf52"]
-cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantqthdf52.yaml"
-description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqthdf52 directly (without setup scripts)"
-[feature.build.tasks."inspect-osx_arm64_geant4_variantqthdf52"]
-cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantqthdf52.yaml"
-description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantqthdf52"
+[feature.build.tasks."build-linux_64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantnoqtpython3.10.____cpython"
+[feature.build.tasks."build-linux_64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantnoqtpython3.11.____cpython"
+[feature.build.tasks."build-linux_64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantnoqtpython3.12.____cpython"
+[feature.build.tasks."build-linux_64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantnoqtpython3.13.____cp313"
+[feature.build.tasks."build-linux_64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantnoqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantnoqtpython3.14.____cp314"
+[feature.build.tasks."build-linux_64_geant4_variantqtpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantqtpython3.10.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantqtpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantqtpython3.10.____cpython"
+[feature.build.tasks."build-linux_64_geant4_variantqtpython3.11.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantqtpython3.11.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantqtpython3.11.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantqtpython3.11.____cpython"
+[feature.build.tasks."build-linux_64_geant4_variantqtpython3.12.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantqtpython3.12.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantqtpython3.12.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantqtpython3.12.____cpython"
+[feature.build.tasks."build-linux_64_geant4_variantqtpython3.13.____cp313"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantqtpython3.13.____cp313"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantqtpython3.13.____cp313"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantqtpython3.13.____cp313"
+[feature.build.tasks."build-linux_64_geant4_variantqtpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_geant4_variantqtpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant linux_64_geant4_variantqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_geant4_variantqtpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_64_geant4_variantqtpython3.14.____cp314"
+[feature.build.tasks."build-linux_aarch64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantnoqtpython3.10.____cpython"
+[feature.build.tasks."build-linux_aarch64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantnoqtpython3.11.____cpython"
+[feature.build.tasks."build-linux_aarch64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantnoqtpython3.12.____cpython"
+[feature.build.tasks."build-linux_aarch64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantnoqtpython3.13.____cp313"
+[feature.build.tasks."build-linux_aarch64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantnoqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantnoqtpython3.14.____cp314"
+[feature.build.tasks."build-linux_aarch64_geant4_variantqtpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantqtpython3.10.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantqtpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantqtpython3.10.____cpython"
+[feature.build.tasks."build-linux_aarch64_geant4_variantqtpython3.11.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantqtpython3.11.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantqtpython3.11.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantqtpython3.11.____cpython"
+[feature.build.tasks."build-linux_aarch64_geant4_variantqtpython3.12.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantqtpython3.12.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantqtpython3.12.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantqtpython3.12.____cpython"
+[feature.build.tasks."build-linux_aarch64_geant4_variantqtpython3.13.____cp313"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantqtpython3.13.____cp313"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantqtpython3.13.____cp313"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantqtpython3.13.____cp313"
+[feature.build.tasks."build-linux_aarch64_geant4_variantqtpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-linux_aarch64_geant4_variantqtpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant linux_aarch64_geant4_variantqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_aarch64_geant4_variantqtpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_aarch64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "List contents of geant4-feedstock packages built for variant linux_aarch64_geant4_variantqtpython3.14.____cp314"
+[feature.build.tasks."build-osx_64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantnoqtpython3.10.____cpython"
+[feature.build.tasks."build-osx_64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantnoqtpython3.11.____cpython"
+[feature.build.tasks."build-osx_64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantnoqtpython3.12.____cpython"
+[feature.build.tasks."build-osx_64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantnoqtpython3.13.____cp313"
+[feature.build.tasks."build-osx_64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantnoqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantnoqtpython3.14.____cp314"
+[feature.build.tasks."build-osx_64_geant4_variantqtpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantqtpython3.10.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantqtpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantqtpython3.10.____cpython"
+[feature.build.tasks."build-osx_64_geant4_variantqtpython3.11.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantqtpython3.11.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantqtpython3.11.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantqtpython3.11.____cpython"
+[feature.build.tasks."build-osx_64_geant4_variantqtpython3.12.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantqtpython3.12.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantqtpython3.12.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantqtpython3.12.____cpython"
+[feature.build.tasks."build-osx_64_geant4_variantqtpython3.13.____cp313"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantqtpython3.13.____cp313"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantqtpython3.13.____cp313"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantqtpython3.13.____cp313"
+[feature.build.tasks."build-osx_64_geant4_variantqtpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_geant4_variantqtpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant osx_64_geant4_variantqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_geant4_variantqtpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_64_geant4_variantqtpython3.14.____cp314"
+[feature.build.tasks."build-osx_arm64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantnoqtpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.10.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantnoqtpython3.10.____cpython"
+[feature.build.tasks."build-osx_arm64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantnoqtpython3.11.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.11.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantnoqtpython3.11.____cpython"
+[feature.build.tasks."build-osx_arm64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantnoqtpython3.12.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.12.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantnoqtpython3.12.____cpython"
+[feature.build.tasks."build-osx_arm64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantnoqtpython3.13.____cp313"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.13.____cp313.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantnoqtpython3.13.____cp313"
+[feature.build.tasks."build-osx_arm64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantnoqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantnoqtpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantnoqtpython3.14.____cp314.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantnoqtpython3.14.____cp314"
+[feature.build.tasks."build-osx_arm64_geant4_variantqtpython3.10.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantqtpython3.10.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.10.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantqtpython3.10.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.10.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantqtpython3.10.____cpython"
+[feature.build.tasks."build-osx_arm64_geant4_variantqtpython3.11.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantqtpython3.11.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.11.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantqtpython3.11.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.11.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantqtpython3.11.____cpython"
+[feature.build.tasks."build-osx_arm64_geant4_variantqtpython3.12.____cpython"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantqtpython3.12.____cpython"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.12.____cpython directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantqtpython3.12.____cpython"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.12.____cpython.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantqtpython3.12.____cpython"
+[feature.build.tasks."build-osx_arm64_geant4_variantqtpython3.13.____cp313"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantqtpython3.13.____cp313"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.13.____cp313 directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantqtpython3.13.____cp313"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.13.____cp313.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantqtpython3.13.____cp313"
+[feature.build.tasks."build-osx_arm64_geant4_variantqtpython3.14.____cp314"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_geant4_variantqtpython3.14.____cp314"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "Build geant4-feedstock with variant osx_arm64_geant4_variantqtpython3.14.____cp314 directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_geant4_variantqtpython3.14.____cp314"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_geant4_variantqtpython3.14.____cp314.yaml"
+description = "List contents of geant4-feedstock packages built for variant osx_arm64_geant4_variantqtpython3.14.____cp314"
 
 [environments]
 build = ["build"]

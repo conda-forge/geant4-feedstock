@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "11.4.2"
+  version: "10.7.4"
 
 recipe:
   name: geant4
@@ -9,19 +9,13 @@ recipe:
 
 source:
   url: https://github.com/Geant4/geant4/archive/v${{ version }}.tar.gz
-  sha256: f381f461e31fdcfccf28a5e48b420d61ba66adbf55d266e3691277bab04eb270
+  sha256: 602b41dfee1fa6b33b026d00c5bd940155d7e5d0b3495230a87e2a25b28f9996
   target_directory: src
   patches:
-    # g4tools takes the HDF5 1.6 code path on HDF5 2.x because its version
-    # guard only bounds the minor version. Submitted upstream.
-    - patches/0001-g4tools-fix-hdf5-2-version-guard.patch
-    # Without this, geant4-config --check-datasets looks only at the paths
-    # baked in at configure time and reports NOTFOUND for datasets supplied
-    # through G4LEDATA and friends, as the geant4-data-* packages do.
     - patches/0002-geant4-config-honour-dataset-env-vars.patch
 
 build:
-  number: 1
+  number: 0
   skip: win
 
 outputs:
@@ -39,17 +33,24 @@ outputs:
         - ${{ stdlib('c') }}
         - cmake
         - ninja
+        - if: build_platform != target_platform
+          then:
+            - python
+            - cross-python_${{ target_platform }}
         - if: build_platform != target_platform and geant4_variant == "qt"
-          then: qt6-main
+          then: qt-main
       host:
+        # 10.7 requires CLHEP >= 2.4.4.0; clhep's run_exports carry the pin.
         - clhep
         - expat
         - freetype
-        - hdf5
         - xerces-c
         - zlib
+        # g4py is built here (GEANT4_USE_PYTHON); it was removed upstream in 11.0.
+        - python
+        - libboost-python-devel
         - if: geant4_variant == "qt"
-          then: qt6-main
+          then: qt-main
         - if: linux
           then:
             - libgl-devel
@@ -60,10 +61,8 @@ outputs:
       name: geant4
     inherit: geant4-toolkit
     build:
-      # Selectable as e.g. `geant4=*=noqt_*`.
       string: ${{ geant4_variant }}_${{ hash }}_${{ build_number }}
       variant:
-        # Qt is the default.
         down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
       files:
         - bin/geant4-config
@@ -71,12 +70,10 @@ outputs:
         - bin/geant4.sh
         - include/Geant4/**
         - lib/Geant4-${{ version }}/**
-        - lib/cmake/Geant4/**
         - lib/libG4*
-        - lib/pkgconfig/G4ptl.pc
-        - share/Geant4/fonts/**
-        - share/Geant4/geant4make/**
-        - share/Geant4/tools.license
+        - share/Geant4-${{ version }}/fonts/**
+        - share/Geant4-${{ version }}/geant4make/**
+        - share/Geant4-${{ version }}/tools.license
       dynamic_linking:
         overlinking_behavior: error
         overdepending_behavior: error
@@ -90,16 +87,15 @@ outputs:
         # GEANT4 data packages, versions are taken from:
         # https://github.com/Geant4/geant4/blob/v${{ version }}/cmake/Modules/G4DatasetDefinitions.cmake
         # NB: For robustness, add a trailing ".0" if the version does not have a patch number.
-        - geant4-data-abla =3.3.0
-        - geant4-data-channeling =2.0.0
-        - geant4-data-emlow =8.8.0
-        - geant4-data-ensdfstate =3.0.0
-        - geant4-data-incl =1.3.0
-        - geant4-data-ndl =4.7.1
-        - geant4-data-particlexs =4.2.0
-        - geant4-data-photonevaporation =6.1.2
+        - geant4-data-abla =3.1.0
+        - geant4-data-emlow =7.13.0
+        - geant4-data-ensdfstate =2.3.0
+        - geant4-data-incl =1.0.0
+        - geant4-data-ndl =4.6.0
+        - geant4-data-particlexs =3.1.1
+        - geant4-data-photonevaporation =5.7.0
         - geant4-data-pii =1.3.0
-        - geant4-data-radioactivedecay =6.1.2
+        - geant4-data-radioactivedecay =5.6.0
         - geant4-data-realsurface =2.2.0
         - geant4-data-saiddata =2.0.0
       run_exports:
@@ -115,19 +111,16 @@ outputs:
               - bin/geant4.sh
               - include/Geant4/G4Version.hh
               - include/Geant4/**
+              - lib/Geant4-${{ version }}/Geant4Config.cmake
               - lib/Geant4-${{ version }}/**
-              - lib/cmake/Geant4/Geant4Config.cmake
-              - lib/cmake/Geant4/**
               - lib/libG4*
-              - lib/pkgconfig/G4ptl.pc
-              - share/Geant4/fonts/**
-              - share/Geant4/geant4make/geant4make.sh
-              - share/Geant4/geant4make/**
-              - share/Geant4/tools.license
-              # Added to the package by tests[].files.recipe below.
+              - share/Geant4-${{ version }}/fonts/**
+              - share/Geant4-${{ version }}/geant4make/**
+              - share/Geant4-${{ version }}/tools.license
               - etc/conda/test-files/**
             not_exists:
-              - share/Geant4/examples/**
+              - share/Geant4-${{ version }}/examples/**
+              - lib/python*/site-packages/Geant4/**
       - script:
           file: test_geant4
           env:
@@ -144,7 +137,7 @@ outputs:
             - freetype
             - zlib
             - if: geant4_variant == "qt"
-              then: qt6-main
+              then: qt-main
             - if: linux
               then:
                 - libgl-devel
@@ -157,19 +150,45 @@ outputs:
       summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
 
   - package:
+      name: geant4-python
+    inherit: geant4-toolkit
+    build:
+      string: ${{ geant4_variant }}_${{ hash }}_${{ build_number }}
+      variant:
+        down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
+      files:
+        - lib/python*/site-packages/Geant4/**
+      dynamic_linking:
+        overlinking_behavior: error
+        overdepending_behavior: error
+    requirements:
+      build:
+        - ${{ stdlib('c') }}
+      run:
+        - ${{ pin_subpackage('geant4', exact=True) }}
+    tests:
+      - package_contents:
+          strict: true
+          files:
+            exists:
+              - lib/python*/site-packages/Geant4/__init__.py
+              - lib/python*/site-packages/Geant4/**
+      - python:
+          imports:
+            - Geant4
+    about:
+      summary: Python bindings (g4py) for Geant4
+
+  - package:
       name: geant4-examples
     build:
-      # The examples are copied verbatim out of the tarball and are identical
-      # on every platform.
       noarch: generic
       skip: geant4_variant != "qt"
       variant:
-        # Unused here, but conda-smithy only gives a variant its own CI job when
-        # every output names it. Drop this and hdf5 migrations build serially.
+        # conda-smithy only gives a variant its own CI job when every output
+        # names it; without this the python variants build serially in one job.
         use_keys:
-          - hdf5
-        # Keep the hash platform-independent: the compilers below are only used
-        # by the test, and every job must produce the same noarch package.
+          - python
         ignore_keys:
           - c_compiler
           - c_compiler_version
@@ -190,9 +209,8 @@ outputs:
           strict: true
           files:
             exists:
-              - share/Geant4/examples/README.md
-              - share/Geant4/examples/basic/B1/exampleB1.cc
-              - share/Geant4/examples/**
+              - share/Geant4-${{ version }}/examples/basic/B1/exampleB1.cc
+              - share/Geant4-${{ version }}/examples/**
       - script:
           file: test_examples
         requirements:
@@ -207,7 +225,7 @@ outputs:
             - freetype
             - zlib
             - if: geant4_variant == "qt"
-              then: qt6-main
+              then: qt-main
             - if: linux
               then:
                 - libgl-devel
@@ -216,21 +234,20 @@ outputs:
     about:
       summary: Basic, extended and advanced example applications for Geant4
 
-  # --------------------------------------------------------------------------
   - package:
       name: geant4-qt-mutex
     build:
-      # Qt is compiled into libG4interfaces, libG4OpenGL, libG4RayTracer and
-      # libG4ToolsSG, so it cannot be a package of its own. The toolkit is built
-      # both ways instead; the two builds write the same files, and this
-      # metapackage makes that exclusivity visible to the solver. Pin the choice
-      # with e.g. `geant4-qt-mutex=*=noqt_1`.
+      # Qt is compiled into libG4interfaces, libG4OpenGL and libG4RayTracer, so
+      # it cannot be a package of its own. The toolkit is built both ways
+      # instead; the two builds write the same files, and this metapackage makes
+      # that exclusivity visible to the solver. Pin the choice with e.g.
+      # `geant4-qt-mutex=*=noqt_0`.
       string: ${{ geant4_variant }}_${{ build_number }}
       variant:
         down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
         # See geant4-examples above.
         use_keys:
-          - hdf5
+          - python
     tests:
       - package_contents:
           strict: true

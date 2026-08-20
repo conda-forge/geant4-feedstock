@@ -23,15 +23,21 @@ expat:
 freetype:
 - '2'
 geant4_variant:
-- noqt
-hdf5:
-- 1.14.6
+- qt
+libboost_python_devel:
+- '1.90'
 macos_machine:
-- x86_64-apple-darwin13.4.0
-qt6_main:
-- '6.11'
+- arm64-apple-darwin20.0.0
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- 3.12.* *_cpython
+qt_main:
+- '5.15'
 target_platform:
-- osx-64
+- osx-arm64
 xerces_c:
 - '3.3'
 zip_keys:

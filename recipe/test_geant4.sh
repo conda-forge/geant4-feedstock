@@ -14,7 +14,6 @@ else
 fi
 
 test "$(geant4-config --has-feature multithreading)" = "yes"
-test "$(geant4-config --has-feature hdf5)" = "yes"
 test "$(geant4-config --has-feature gdml)" = "yes"
 
 # Check every dataset Geant4 was configured against is installed at the version

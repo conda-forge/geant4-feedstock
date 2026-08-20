@@ -13,7 +13,7 @@ fi
 
 # GEANT4_USE_QT is set per variant by the recipe.
 if [[ "${GEANT4_USE_QT}" == "ON" ]]; then
-  CMAKE_PLATFORM_FLAGS+=(-DQT_QMAKE_EXECUTABLE="${PREFIX}/bin/qmake6")
+  CMAKE_PLATFORM_FLAGS+=(-DQT_QMAKE_EXECUTABLE="${PREFIX}/bin/qmake")
 fi
 
 test -f "${SRC_DIR}/src/CMakeLists.txt"
@@ -27,7 +27,7 @@ cmake \
     -DCMAKE_INSTALL_LIBDIR=lib \
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_SHARED_LIBS=ON                                   \
-    -DCMAKE_CXX_STANDARD=17                                  \
+    -DGEANT4_BUILD_CXXSTD=17                                 \
     -DGEANT4_BUILD_MULTITHREADED=ON                          \
     -DGEANT4_BUILD_TLS_MODEL=global-dynamic                  \
     -DGEANT4_INSTALL_DATA=OFF                                \
@@ -36,8 +36,9 @@ cmake \
     -DGEANT4_INSTALL_PACKAGE_CACHE=OFF                       \
     -DGEANT4_USE_FREETYPE=ON                                 \
     -DGEANT4_USE_GDML=ON                                     \
-    -DGEANT4_USE_HDF5=ON                                     \
+    -DGEANT4_USE_HDF5=OFF                                    \
     -DGEANT4_USE_QT="${GEANT4_USE_QT}"                       \
+    -DGEANT4_USE_PYTHON=ON                                   \
     -DGEANT4_USE_SYSTEM_CLHEP=ON                             \
     -DGEANT4_USE_SYSTEM_EXPAT=ON                             \
     -DGEANT4_USE_SYSTEM_ZLIB=ON                              \

@@ -22,10 +22,16 @@ freetype:
 - '2'
 geant4_variant:
 - noqt
-hdf5:
-- 1.14.6
-qt6_main:
-- '6.11'
+libboost_python_devel:
+- '1.90'
+pin_run_as_build:
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- 3.13.* *_cp313
+qt_main:
+- '5.15'
 target_platform:
 - linux-aarch64
 xerces_c:
