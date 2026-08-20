@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(geant4-conda-test LANGUAGES CXX)
 
-# Exercises the exported Geant4Config.cmake, which unconditionally resolves
-# CLHEP (with an EXACT version match), OpenGL, X11 and -- when built with the
-# qt variant -- Qt6.
+# Exercises the exported Geant4Config.cmake and its find_dependency() calls.
 find_package(Geant4 REQUIRED)
 
 add_executable(geant4-conda-test main.cc)

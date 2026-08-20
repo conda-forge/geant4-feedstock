@@ -13,15 +13,12 @@ source:
   target_directory: src
 
 build:
-  # Bumped so these packages outrank the already-published 11.4.2 build 0,
-  # which carried python variants in its build string.
   number: 1
   skip: win
 
 outputs:
   # --------------------------------------------------------------------------
-  # Shared build of the toolkit. Everything that ships compiled artefacts
-  # `inherit`s from this so the (multi-hour) compile only runs once per variant.
+  # Compiled once per variant; the outputs below select files from it.
   - staging:
       name: geant4-toolkit
     build:
@@ -39,11 +36,8 @@ outputs:
         - if: build_platform != target_platform and geant4_variant == "qt"
           then: qt6-main
       host:
-        # Geant4 bakes `find_dependency(CLHEP <version> EXACT)` into
-        # Geant4Config.cmake, so the runtime constraint has to be exact. That is
-        # precisely what clhep's own run_exports give us
-        # (pin_subpackage(upper_bound='x.x.x.x')), so do not pin it by hand --
-        # a manual pin here just goes stale.
+        # Geant4Config.cmake carries find_dependency(CLHEP ... EXACT); clhep's
+        # run_exports already pin to that granularity, so do not pin by hand.
         - clhep
         - expat
         - freetype
@@ -63,12 +57,10 @@ outputs:
       name: geant4
     inherit: geant4-toolkit
     build:
-      # Encode the variant in the build string so it can be selected explicitly,
-      # e.g. `conda install "geant4=*=noqt_*"`.
+      # Selectable as e.g. `geant4=*=noqt_*`.
       string: ${{ geant4_variant }}_${{ hash }}_${{ build_number }}
       variant:
-        # Qt has always been enabled, so keep it as the default the solver
-        # reaches for when nobody expresses a preference.
+        # Qt is the default.
         down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
       files:
         - bin/geant4-config
@@ -87,23 +79,14 @@ outputs:
         overdepending_behavior: error
     requirements:
       build:
-        # Not used to build anything -- this output just takes files from the
-        # staging cache. rattler-build derives the set of system libraries the
-        # linking checks are allowed to ignore (libc, libm, libpthread, ...)
-        # from the sysroot package in *this output's* build dependencies, and
-        # inheriting from a staging output does not carry that across. Without
-        # it the allowlist is empty and every glibc library trips
-        # overlinking_behavior: error.
+        # Required, despite nothing being built here: rattler-build takes the
+        # system libraries the linking checks may ignore from the sysroot in
+        # this output's build deps, which `inherit` does not carry across.
         - ${{ stdlib('c') }}
       run:
         - ${{ pin_subpackage('geant4-qt-mutex', exact=True) }}
         # Geant4Config.cmake unconditionally calls find_dependency(OpenGL), so
-        # every `find_package(Geant4)` needs the GL headers and the libGL.so
-        # symlink, not just the runtime libgl that gets linked. Geant4 is a
-        # toolkit people compile against, so ship them rather than breaking
-        # cmake for anyone who just `conda install geant4`. This is not
-        # overdepending: libgl-devel's libGL.so is a symlink onto libgl's
-        # libGL.so.1, which is linked.
+        # find_package(Geant4) needs the GL headers, not just the runtime libgl.
         - if: linux
           then: libgl-devel
         # GEANT4 data packages, versions are taken from:
@@ -143,11 +126,9 @@ outputs:
               - share/Geant4/geant4make/geant4make.sh
               - share/Geant4/geant4make/**
               - share/Geant4/tools.license
-              # The CMake smoke-test project below is shipped inside the package
-              # by `tests[].files.recipe`.
+              # Added to the package by tests[].files.recipe below.
               - etc/conda/test-files/**
             not_exists:
-              # The examples live in their own package now.
               - share/Geant4/examples/**
       - script:
           file: test_geant4
@@ -161,9 +142,8 @@ outputs:
             - cmake
             - ninja
           run:
-            # Development files that `find_package(Geant4)` pulls in via
-            # find_dependency(). This is the dependency set a downstream
-            # feedstock needs in its own `host` section.
+            # What find_package(Geant4) resolves via find_dependency(), i.e.
+            # what a downstream feedstock needs in its own host section.
             - expat
             - freetype
             - zlib
@@ -184,23 +164,27 @@ outputs:
   - package:
       name: geant4-examples
     build:
-      # Every one of the 9047 example files is byte-identical on every platform
-      # (install_examples.sh just copies them out of the tarball), so this is a
-      # noarch package built from a single job rather than four copies of the
-      # same ~95 MB.
+      # The examples are copied verbatim out of the tarball and are identical
+      # on every platform.
       noarch: generic
-      # conda-smithy prunes noarch outputs from its own meta list on non-noarch
-      # platforms, but never tells rattler-build to skip them, so without this
-      # the package is built once per platform.
-      skip: geant4_variant != "qt" or build_platform != "linux-64"
+      skip: geant4_variant != "qt"
       variant:
-        # conda-smithy only fans a variant out across CI jobs when *every*
-        # output uses it -- it intersects get_used_loop_vars(force_top_level=True)
-        # over the outputs. This output does not care about hdf5, but without
-        # naming it here linux-64 stops splitting the hdf5 migration into
-        # parallel jobs and builds both versions back to back instead.
+        # Unused here, but conda-smithy only gives a variant its own CI job when
+        # every output names it. Drop this and hdf5 migrations build serially.
         use_keys:
           - hdf5
+        # Keep the hash platform-independent: the compilers below are only used
+        # by the test, and every job must produce the same noarch package.
+        ignore_keys:
+          - c_compiler
+          - c_compiler_version
+          - cxx_compiler
+          - cxx_compiler_version
+          - c_stdlib
+          - c_stdlib_version
+          - MACOSX_DEPLOYMENT_TARGET
+          - MACOSX_SDK_VERSION
+          - macos_machine
       script:
         file: install_examples
     requirements:
@@ -241,21 +225,15 @@ outputs:
   - package:
       name: geant4-qt-mutex
     build:
-      # Qt support is compiled into libG4interfaces, libG4OpenGL, libG4RayTracer
-      # and libG4ToolsSG, so it cannot be split into its own package -- the
-      # toolkit is built twice instead. The two builds write the same files and
-      # are therefore mutually exclusive; this metapackage is what makes that
-      # explicit to the solver, and lets a user or a downstream package pin the
-      # choice with e.g. `geant4-qt-mutex=*=noqt_*`.
-      # No ${{ hash }} here on purpose: the mutex has no variant-dependent
-      # content, so every job producing it emits an identical package and the
-      # first upload wins. That keeps the build string readable and means all
-      # geant4 builds of a given variant share one mutex.
+      # Qt is compiled into libG4interfaces, libG4OpenGL, libG4RayTracer and
+      # libG4ToolsSG, so it cannot be a package of its own. The toolkit is built
+      # both ways instead; the two builds write the same files, and this
+      # metapackage makes that exclusivity visible to the solver. Pin the choice
+      # with e.g. `geant4-qt-mutex=*=noqt_1`.
       string: ${{ geant4_variant }}_${{ build_number }}
       variant:
         down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
-        # See the note on geant4-examples: needed so conda-smithy splits the
-        # hdf5 variants across CI jobs.
+        # See geant4-examples above.
         use_keys:
           - hdf5
     tests:

@@ -1,7 +1,4 @@
-# Geant4's Qt support is compiled straight into libG4interfaces, libG4OpenGL,
-# libG4RayTracer and libG4ToolsSG, so it cannot be packaged separately -- the
-# toolkit is built once per value here instead. See the geant4-qt-mutex output
-# in recipe.yaml.
+# The toolkit is built once per value; see the geant4-qt-mutex output.
 geant4_variant:
   - qt
   - noqt

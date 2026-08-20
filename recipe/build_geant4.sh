@@ -4,8 +4,6 @@ set -eux
 declare -a CMAKE_PLATFORM_FLAGS
 
 if [[ "${target_platform}" == osx-* ]]; then
-  # The X11 based viewers are not built on macOS; Qt and Cocoa cover the
-  # interactive use cases there.
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_OPENGL_X11=OFF)
   CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_RAYTRACER_X11=OFF)
 else
