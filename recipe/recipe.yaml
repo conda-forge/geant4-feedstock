@@ -33,10 +33,6 @@ outputs:
         - ${{ stdlib('c') }}
         - cmake
         - ninja
-        - if: build_platform != target_platform
-          then:
-            - python
-            - cross-python_${{ target_platform }}
         - if: build_platform != target_platform and geant4_variant == "qt"
           then: qt-main
       host:
@@ -46,9 +42,6 @@ outputs:
         - freetype
         - xerces-c
         - zlib
-        # g4py is built here (GEANT4_USE_PYTHON); it was removed upstream in 11.0.
-        - python
-        - libboost-python-devel
         - if: geant4_variant == "qt"
           then: qt-main
         - if: linux
@@ -150,45 +143,11 @@ outputs:
       summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
 
   - package:
-      name: geant4-python
-    inherit: geant4-toolkit
-    build:
-      string: ${{ geant4_variant }}_${{ hash }}_${{ build_number }}
-      variant:
-        down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
-      files:
-        - lib/python*/site-packages/Geant4/**
-      dynamic_linking:
-        overlinking_behavior: error
-        overdepending_behavior: error
-    requirements:
-      build:
-        - ${{ stdlib('c') }}
-      run:
-        - ${{ pin_subpackage('geant4', exact=True) }}
-    tests:
-      - package_contents:
-          strict: true
-          files:
-            exists:
-              - lib/python*/site-packages/Geant4/__init__.py
-              - lib/python*/site-packages/Geant4/**
-      - python:
-          imports:
-            - Geant4
-    about:
-      summary: Python bindings (g4py) for Geant4
-
-  - package:
       name: geant4-examples
     build:
       noarch: generic
       skip: geant4_variant != "qt"
       variant:
-        # conda-smithy only gives a variant its own CI job when every output
-        # names it; without this the python variants build serially in one job.
-        use_keys:
-          - python
         ignore_keys:
           - c_compiler
           - c_compiler_version
@@ -245,9 +204,6 @@ outputs:
       string: ${{ geant4_variant }}_${{ build_number }}
       variant:
         down_prioritize_variant: ${{ 0 if geant4_variant == "qt" else 1 }}
-        # See geant4-examples above.
-        use_keys:
-          - python
     tests:
       - package_contents:
           strict: true

@@ -38,7 +38,7 @@ cmake \
     -DGEANT4_USE_GDML=ON                                     \
     -DGEANT4_USE_HDF5=OFF                                    \
     -DGEANT4_USE_QT="${GEANT4_USE_QT}"                       \
-    -DGEANT4_USE_PYTHON=ON                                   \
+    -DGEANT4_USE_PYTHON=OFF                                  \
     -DGEANT4_USE_SYSTEM_CLHEP=ON                             \
     -DGEANT4_USE_SYSTEM_EXPAT=ON                             \
     -DGEANT4_USE_SYSTEM_ZLIB=ON                              \
