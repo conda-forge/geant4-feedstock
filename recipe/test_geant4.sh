@@ -17,6 +17,19 @@ test "$(geant4-config --has-feature multithreading)" = "yes"
 test "$(geant4-config --has-feature hdf5)" = "yes"
 test "$(geant4-config --has-feature gdml)" = "yes"
 
+# Geant4 records its CLHEP choice in the Geant4Config.cmake it installs and
+# every consumer inherits it, so check both halves of that choice. The builtin
+# copy keeps the CLHEP namespace, so a build that quietly fell back to it would
+# put a second set of CLHEP symbols, and a second HepRandom engine, into any
+# process that also loads the real library. And the external one is imported
+# with EXACT, which welds consumers to whichever clhep the variant supplied, so
+# it has to be the one this release was verified with rather than whatever the
+# solver happened to pick.
+g4_config="${PREFIX}/lib/cmake/Geant4/Geant4Config.cmake"
+grep -qE '^set\(Geant4_system_clhep_FOUND (ON|TRUE|1)\)' "${g4_config}"
+g4_clhep=$(sed -nE 's/.*find_dependency\(CLHEP ([0-9.]+) EXACT CONFIG\).*/\1/p' "${g4_config}")
+test "${g4_clhep}" = "${GEANT4_CLHEP_VERSION}"
+
 # Check every dataset Geant4 was configured against is installed at the version
 # it expects. `geant4-config --datasets` prints "<NAME> <ENVVAR> <PATH>" with the
 # version baked in at configure time; the conda geant4-data-* packages point

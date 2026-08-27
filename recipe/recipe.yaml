@@ -2,6 +2,12 @@ schema_version: 1
 
 context:
   version: "11.4.2"
+  # Geant4 writes find_dependency(CLHEP <version> EXACT CONFIG) into the
+  # Geant4Config.cmake it installs, so this choice is inherited by everything
+  # built against the package. Use the version upstream verified this release
+  # with, from the "Supported CLHEP, VecGeom and PTL versions" section of
+  # https://github.com/Geant4/geant4/blob/v${{ version }}/ReleaseNotes/ReleaseNotes.11.4.html
+  clhep_version: "2.4.7.2"
 
 recipe:
   name: geant4
@@ -22,7 +28,11 @@ source:
 
 build:
   number: 1
-  skip: win
+  skip:
+    - win
+    # The global pinning carries one clhep per supported Geant4 release; build
+    # against ours and leave the others to the feedstock branches that want them.
+    - clhep != clhep_version
 
 outputs:
   - staging:
@@ -132,6 +142,7 @@ outputs:
           file: test_geant4
           env:
             GEANT4_USE_QT: ${{ "ON" if geant4_variant == "qt" else "OFF" }}
+            GEANT4_CLHEP_VERSION: ${{ clhep_version }}
         requirements:
           build:
             - ${{ compiler('c') }}
