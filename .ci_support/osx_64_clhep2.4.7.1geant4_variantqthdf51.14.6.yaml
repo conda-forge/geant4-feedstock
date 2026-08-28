@@ -15,7 +15,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 clhep:
-- 2.4.7.2
+- 2.4.7.1
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
@@ -25,9 +25,9 @@ expat:
 freetype:
 - '2'
 geant4_variant:
-- noqt
+- qt
 hdf5:
-- '2'
+- 1.14.6
 macos_machine:
 - x86_64-apple-darwin13.4.0
 qt6_main:

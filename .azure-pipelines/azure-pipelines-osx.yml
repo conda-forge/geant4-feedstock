@@ -8,8 +8,8 @@ jobs:
     vmImage: $(VMIMAGE)
   strategy:
     matrix:
-      osx_64_clhep2.4.7.2geant4_variantnoqthdf51.14.6:
-        CONFIG: osx_64_clhep2.4.7.2geant4_variantnoqthdf51.14.6
+      osx_64_clhep2.4.7.1geant4_variantnoqthdf51.14.6:
+        CONFIG: osx_64_clhep2.4.7.1geant4_variantnoqthdf51.14.6
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -18,8 +18,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_64_clhep2.4.7.2geant4_variantnoqthdf52:
-        CONFIG: osx_64_clhep2.4.7.2geant4_variantnoqthdf52
+      osx_64_clhep2.4.7.1geant4_variantnoqthdf52:
+        CONFIG: osx_64_clhep2.4.7.1geant4_variantnoqthdf52
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -28,8 +28,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_64_clhep2.4.7.2geant4_variantqthdf51.14.6:
-        CONFIG: osx_64_clhep2.4.7.2geant4_variantqthdf51.14.6
+      osx_64_clhep2.4.7.1geant4_variantqthdf51.14.6:
+        CONFIG: osx_64_clhep2.4.7.1geant4_variantqthdf51.14.6
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -38,8 +38,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_64_clhep2.4.7.2geant4_variantqthdf52:
-        CONFIG: osx_64_clhep2.4.7.2geant4_variantqthdf52
+      osx_64_clhep2.4.7.1geant4_variantqthdf52:
+        CONFIG: osx_64_clhep2.4.7.1geant4_variantqthdf52
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -48,8 +48,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_clhep2.4.7.2geant4_variantnoqthdf51.14.6:
-        CONFIG: osx_arm64_clhep2.4.7.2geant4_variantnoqthdf51.14.6
+      osx_arm64_clhep2.4.7.1geant4_variantnoqthdf51.14.6:
+        CONFIG: osx_arm64_clhep2.4.7.1geant4_variantnoqthdf51.14.6
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -58,8 +58,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_clhep2.4.7.2geant4_variantnoqthdf52:
-        CONFIG: osx_arm64_clhep2.4.7.2geant4_variantnoqthdf52
+      osx_arm64_clhep2.4.7.1geant4_variantnoqthdf52:
+        CONFIG: osx_arm64_clhep2.4.7.1geant4_variantnoqthdf52
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -68,8 +68,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_clhep2.4.7.2geant4_variantqthdf51.14.6:
-        CONFIG: osx_arm64_clhep2.4.7.2geant4_variantqthdf51.14.6
+      osx_arm64_clhep2.4.7.1geant4_variantqthdf51.14.6:
+        CONFIG: osx_arm64_clhep2.4.7.1geant4_variantqthdf51.14.6
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld
@@ -78,8 +78,8 @@ jobs:
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: ~/miniforge3
-      osx_arm64_clhep2.4.7.2geant4_variantqthdf52:
-        CONFIG: osx_arm64_clhep2.4.7.2geant4_variantqthdf52
+      osx_arm64_clhep2.4.7.1geant4_variantqthdf52:
+        CONFIG: osx_arm64_clhep2.4.7.1geant4_variantqthdf52
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15-arm64
         build_workspace_dir: ~/miniforge3/conda-bld

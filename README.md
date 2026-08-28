@@ -92,59 +92,59 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>osx_64_clhep2.4.7.2geant4_variantnoqthdf51.14.6</td>
+              <td>osx_64_clhep2.4.7.1geant4_variantnoqthdf51.14.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_clhep2.4.7.2geant4_variantnoqthdf51.14.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_clhep2.4.7.1geant4_variantnoqthdf51.14.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_clhep2.4.7.2geant4_variantnoqthdf52</td>
+              <td>osx_64_clhep2.4.7.1geant4_variantnoqthdf52</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_clhep2.4.7.2geant4_variantnoqthdf52" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_clhep2.4.7.1geant4_variantnoqthdf52" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_clhep2.4.7.2geant4_variantqthdf51.14.6</td>
+              <td>osx_64_clhep2.4.7.1geant4_variantqthdf51.14.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_clhep2.4.7.2geant4_variantqthdf51.14.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_clhep2.4.7.1geant4_variantqthdf51.14.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_clhep2.4.7.2geant4_variantqthdf52</td>
+              <td>osx_64_clhep2.4.7.1geant4_variantqthdf52</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_clhep2.4.7.2geant4_variantqthdf52" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_clhep2.4.7.1geant4_variantqthdf52" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_clhep2.4.7.2geant4_variantnoqthdf51.14.6</td>
+              <td>osx_arm64_clhep2.4.7.1geant4_variantnoqthdf51.14.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_clhep2.4.7.2geant4_variantnoqthdf51.14.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_clhep2.4.7.1geant4_variantnoqthdf51.14.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_clhep2.4.7.2geant4_variantnoqthdf52</td>
+              <td>osx_arm64_clhep2.4.7.1geant4_variantnoqthdf52</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_clhep2.4.7.2geant4_variantnoqthdf52" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_clhep2.4.7.1geant4_variantnoqthdf52" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_clhep2.4.7.2geant4_variantqthdf51.14.6</td>
+              <td>osx_arm64_clhep2.4.7.1geant4_variantqthdf51.14.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_clhep2.4.7.2geant4_variantqthdf51.14.6" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_clhep2.4.7.1geant4_variantqthdf51.14.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64_clhep2.4.7.2geant4_variantqthdf52</td>
+              <td>osx_arm64_clhep2.4.7.1geant4_variantqthdf52</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6498&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_clhep2.4.7.2geant4_variantqthdf52" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/geant4-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_clhep2.4.7.1geant4_variantqthdf52" alt="variant">
                 </a>
               </td>
             </tr>
