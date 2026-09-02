@@ -1,0 +1,4 @@
+# The toolkit is built once per value; see the geant4-qt-mutex output.
+geant4_variant:
+  - qt
+  - noqt

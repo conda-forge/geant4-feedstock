@@ -1,0 +1,71 @@
+From d26f62023c572f799df9e1083efd278760ae2a19 Mon Sep 17 00:00:00 2001
+From: c <a@b>
+Date: Thu, 20 Aug 2026 16:51:18 +0200
+Subject: [PATCH] geant4-config: honour dataset environment variables in
+ --check-datasets
+
+check_datasets and the detection loop of install_datasets look only at the
+dataset locations baked in at configure time. Geant4 itself reads G4LEDATA,
+G4NEUTRONHPDATA and friends at runtime and only falls back to the configured
+location, so an installation whose datasets are provided through those
+variables is reported as NOTFOUND even though Geant4 will find every one of
+them, and --install-datasets would re-download data that is already present.
+
+Resolve the location the same way Geant4 does, preferring the environment
+variable when it is set. With no variables set the behaviour is unchanged.
+
+--install-datasets still unpacks into the configured location; only the
+decision about what is already installed changes.
+---
+ cmake/Templates/geant4-config.in | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/Templates/geant4-config.in b/cmake/Templates/geant4-config.in
+index b343079..f91e55e 100644
+--- a/cmake/Templates/geant4-config.in
++++ b/cmake/Templates/geant4-config.in
+@@ -336,6 +336,23 @@ print_datasets_csh()
+   exit 0
+ }
+ 
++#-----------------------------------------------------------------------
++# function dataset_effective_path
++#          Print the directory Geant4 will actually use for a dataset. Geant4
++#          reads the dataset environment variables at runtime and only falls
++#          back to the configured location, so honour the same order here.
++#
++dataset_effective_path()
++{
++  ds_envvar=$(echo $1 | cut -d "|" -f2)
++  ds_path=$(echo $1 | cut -d "|" -f3)
++  eval ds_envvar_value=\"\${${ds_envvar}:-}\"
++  if test "x${ds_envvar_value}" != "x" ; then
++    ds_path=${ds_envvar_value}
++  fi
++  echo ${ds_path}
++}
++
+ #-----------------------------------------------------------------------
+ # function check_datasets
+ #          Check whether datasets exist as directories at the expected
+@@ -345,7 +362,7 @@ check_datasets()
+ {
+   for ds in ${dataset_list} ; do
+     dataset_name=$(echo $ds | cut -d "|" -f1)
+-    dataset_path=$(echo $ds | cut -d "|" -f3)
++    dataset_path=$(dataset_effective_path "$ds")
+     dataset_status="NOTFOUND"
+     if test -d ${dataset_path} ; then
+       dataset_status="INSTALLED"
+@@ -387,7 +404,7 @@ install_datasets()
+ 
+   datasets_to_install=''
+   for ds in ${dataset_list} ; do
+-    dataset_path=$(echo $ds | cut -d "|" -f3)
++    dataset_path=$(dataset_effective_path "$ds")
+     if test ! -d ${dataset_path} ; then
+       datasets_to_install="${datasets_to_install} ${ds}"
+     fi
+-- 
+2.55.0
+
