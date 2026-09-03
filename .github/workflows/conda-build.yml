@@ -22,7 +22,7 @@ jobs:
       max-parallel: 50
       matrix:
         include:
-          - CONFIG: linux_64_geant4_variantnoqt
+          - CONFIG: linux_64_clhep2.4.7.1geant4_variantnoqt
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -34,7 +34,7 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_64_geant4_variantqt
+          - CONFIG: linux_64_clhep2.4.7.1geant4_variantqt
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -46,7 +46,7 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-latest']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_aarch64_geant4_variantnoqt
+          - CONFIG: linux_aarch64_clhep2.4.7.1geant4_variantnoqt
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
@@ -58,7 +58,7 @@ jobs:
             resize_partitions: False
             runs_on: ['ubuntu-24.04-arm']
             tools_install_dir: ~/miniforge3
-          - CONFIG: linux_aarch64_geant4_variantqt
+          - CONFIG: linux_aarch64_clhep2.4.7.1geant4_variantqt
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-aarch64:alma10
             STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
