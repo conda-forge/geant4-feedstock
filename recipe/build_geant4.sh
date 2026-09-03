@@ -13,6 +13,9 @@ fi
 
 # GEANT4_USE_QT is set per variant by the recipe.
 if [[ "${GEANT4_USE_QT}" == "ON" ]]; then
+  # 11.3 still looks for Qt5 unless asked otherwise; 11.4 made Qt6 the default
+  # and dropped this option in favour of an opt-in GEANT4_USE_QT_QT5.
+  CMAKE_PLATFORM_FLAGS+=(-DGEANT4_USE_QT_QT6=ON)
   CMAKE_PLATFORM_FLAGS+=(-DQT_QMAKE_EXECUTABLE="${PREFIX}/bin/qmake6")
 fi
 
