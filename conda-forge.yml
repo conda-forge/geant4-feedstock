@@ -10,3 +10,7 @@ provider:
    linux_aarch64: default
    osx_arm64: azure
 test: native_and_emulated
+bot:
+  abi_migration_branches:
+    - v10.7.x
+    - v11.3.x
