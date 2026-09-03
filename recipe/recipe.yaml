@@ -2,6 +2,12 @@ schema_version: 1
 
 context:
   version: "10.7.4"
+  # 10.7.4 asks for CLHEP >= 2.4.4.0 and CLHEP's config file treats anything
+  # newer as compatible, so any pinned version is acceptable here. 2.4.4.0
+  # itself is not usable: it was never built for osx-arm64, and its
+  # MixMaxRng.h names std::uint32_t without including <cstdint>, which the
+  # current GCC rejects.
+  clhep_version: "2.4.7.1"
 
 recipe:
   name: geant4
@@ -16,8 +22,12 @@ source:
     - patches/0003-g4tools-fix-m_barnch-typo.patch
 
 build:
-  number: 0
-  skip: win
+  number: 1
+  skip:
+    - win
+    # The global pinning carries one clhep per supported Geant4 release; build
+    # against ours and leave the others to the feedstock branches that want them.
+    - clhep != clhep_version
 
 outputs:
   - staging:
@@ -37,7 +47,6 @@ outputs:
         - if: build_platform != target_platform and geant4_variant == "qt"
           then: qt-main
       host:
-        # 10.7 requires CLHEP >= 2.4.4.0; clhep's run_exports carry the pin.
         - clhep
         - expat
         - freetype
