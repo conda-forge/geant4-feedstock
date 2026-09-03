@@ -201,7 +201,7 @@ outputs:
           strict: true
           files:
             exists:
-              - share/Geant4/examples/README.md
+              - share/Geant4/examples/README
               - share/Geant4/examples/basic/B1/exampleB1.cc
               - share/Geant4/examples/**
       - script:
