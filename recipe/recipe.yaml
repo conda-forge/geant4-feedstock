@@ -16,7 +16,7 @@ source:
     - patches/0003-g4tools-fix-m_barnch-typo.patch
 
 build:
-  number: 0
+  number: 1
   skip: win
 
 outputs:
