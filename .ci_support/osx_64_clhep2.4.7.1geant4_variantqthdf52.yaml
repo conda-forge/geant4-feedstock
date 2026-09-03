@@ -31,7 +31,7 @@ hdf5:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 qt6_main:
-- '6.11'
+- '6'
 target_platform:
 - osx-64
 xerces_c:
