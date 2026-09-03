@@ -31,7 +31,7 @@ hdf5:
 macos_machine:
 - arm64-apple-darwin20.0.0
 qt6_main:
-- '6.11'
+- '6'
 target_platform:
 - osx-arm64
 xerces_c:
