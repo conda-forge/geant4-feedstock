@@ -2,12 +2,12 @@ schema_version: 1
 
 context:
   version: "10.7.4"
-  # 10.7.4 asks for CLHEP >= 2.4.4.0 and CLHEP's config file treats anything
-  # newer as compatible, so any pinned version is acceptable here. 2.4.4.0
-  # itself is not usable: it was never built for osx-arm64, and its
-  # MixMaxRng.h names std::uint32_t without including <cstdint>, which the
-  # current GCC rejects.
-  clhep_version: "2.4.7.1"
+  # Geant4 writes find_dependency(CLHEP <version> EXACT CONFIG) into the
+  # Geant4Config.cmake it installs, so this choice is inherited by everything
+  # built against the package. Use the version upstream verified this release
+  # with, from the "Supported CLHEP and VecGeom version" section of
+  # https://github.com/Geant4/geant4/blob/v${{ version }}/ReleaseNotes/ReleaseNotes4.10.7.html
+  clhep_version: "2.4.4.0"
 
 recipe:
   name: geant4
@@ -22,7 +22,7 @@ source:
     - patches/0003-g4tools-fix-m_barnch-typo.patch
 
 build:
-  number: 1
+  number: 2
   skip:
     - win
     # The global pinning carries one clhep per supported Geant4 release; build
@@ -128,6 +128,7 @@ outputs:
           file: test_geant4
           env:
             GEANT4_USE_QT: ${{ "ON" if geant4_variant == "qt" else "OFF" }}
+            GEANT4_CLHEP_VERSION: ${{ clhep_version }}
         requirements:
           build:
             - ${{ compiler('c') }}
