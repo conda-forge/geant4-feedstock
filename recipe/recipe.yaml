@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "11.4.2"
+  version: "11.4.3"
   # Geant4 writes find_dependency(CLHEP <version> EXACT CONFIG) into the
   # Geant4Config.cmake it installs, so this choice is inherited by everything
   # built against the package. Use the version upstream verified this release
@@ -15,7 +15,7 @@ recipe:
 
 source:
   url: https://github.com/Geant4/geant4/archive/v${{ version }}.tar.gz
-  sha256: f381f461e31fdcfccf28a5e48b420d61ba66adbf55d266e3691277bab04eb270
+  sha256: 9744527a2eb2cbc37f15b554fd653379fea57294e15fffa2db83fd484366c89d
   target_directory: src
   patches:
     # g4tools takes the HDF5 1.6 code path on HDF5 2.x because its version
@@ -27,7 +27,7 @@ source:
     - patches/0002-geant4-config-honour-dataset-env-vars.patch
 
 build:
-  number: 1
+  number: 0
   skip:
     - win
     # The global pinning carries one clhep per supported Geant4 release; build
