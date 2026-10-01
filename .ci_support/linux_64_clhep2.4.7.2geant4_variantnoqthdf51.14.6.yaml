@@ -27,7 +27,7 @@ geant4_variant:
 hdf5:
 - 1.14.6
 qt6_main:
-- '6.11'
+- '6'
 target_platform:
 - linux-64
 xerces_c:
