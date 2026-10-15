@@ -27,7 +27,7 @@ source:
     - patches/0002-geant4-config-honour-dataset-env-vars.patch
 
 build:
-  number: 1
+  number: 2
   skip:
     - win
     # The global pinning carries one clhep per supported Geant4 release; build
