@@ -22,7 +22,7 @@ source:
     - patches/0003-g4tools-fix-m_barnch-typo.patch
 
 build:
-  number: 2
+  number: 3
   skip:
     - win
     # The global pinning carries one clhep per supported Geant4 release; build
