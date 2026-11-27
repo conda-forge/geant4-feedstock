@@ -80,6 +80,10 @@ outputs:
       dynamic_linking:
         overlinking_behavior: error
         overdepending_behavior: error
+        # rattler-build 0.77 and later do not find this SONAME symlink among
+        # the package's own files, although the package contains it:
+        missing_dso_allowlist:
+          - lib/libG4ptl.so.0
     requirements:
       build:
         - ${{ stdlib('c') }}
