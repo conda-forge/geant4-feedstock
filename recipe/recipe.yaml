@@ -22,7 +22,7 @@ source:
     - patches/0003-g4tools-fix-m_barnch-typo.patch
 
 build:
-  number: 3
+  number: 4
   skip:
     - win
     # The global pinning carries one clhep per supported Geant4 release; build
@@ -85,6 +85,11 @@ outputs:
         - ${{ stdlib('c') }}
       run:
         - ${{ pin_subpackage('geant4-qt-mutex', exact=True) }}
+        # Needed by find_dependency in Geant4Config.cmake (the headers and the
+        # lib*.so files are not in libexpat, libzlib, and libfreetype6):
+        - expat
+        - zlib
+        - freetype
         - if: linux
           then: libgl-devel
         # GEANT4 data packages, versions are taken from:
@@ -137,9 +142,6 @@ outputs:
             - cmake
             - ninja
           run:
-            - expat
-            - freetype
-            - zlib
             - if: geant4_variant == "qt"
               then: qt-main
             - if: linux
@@ -191,9 +193,6 @@ outputs:
             - cmake
             - ninja
           run:
-            - expat
-            - freetype
-            - zlib
             - if: geant4_variant == "qt"
               then: qt-main
             - if: linux
