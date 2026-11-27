@@ -27,7 +27,7 @@ source:
     - patches/0002-geant4-config-honour-dataset-env-vars.patch
 
 build:
-  number: 0
+  number: 1
   skip:
     - win
     # The global pinning carries one clhep per supported Geant4 release; build
@@ -90,11 +90,20 @@ outputs:
       dynamic_linking:
         overlinking_behavior: error
         overdepending_behavior: error
+        # rattler-build 0.77 and later do not find this SONAME symlink among
+        # the package's own files, although the package contains it:
+        missing_dso_allowlist:
+          - lib/libG4ptl.so.3
     requirements:
       build:
         - ${{ stdlib('c') }}
       run:
         - ${{ pin_subpackage('geant4-qt-mutex', exact=True) }}
+        # Needed by find_dependency in Geant4Config.cmake (the headers and the
+        # lib*.so files are not in libexpat, libzlib, and libfreetype6):
+        - expat
+        - zlib
+        - freetype
         - if: linux
           then: libgl-devel
         # GEANT4 data packages, versions are taken from:
@@ -151,9 +160,6 @@ outputs:
             - cmake
             - ninja
           run:
-            - expat
-            - freetype
-            - zlib
             - if: geant4_variant == "qt"
               then: qt6-main
             - if: linux
@@ -214,9 +220,6 @@ outputs:
             - cmake
             - ninja
           run:
-            - expat
-            - freetype
-            - zlib
             - if: geant4_variant == "qt"
               then: qt6-main
             - if: linux
