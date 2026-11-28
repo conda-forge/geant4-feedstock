@@ -25,9 +25,14 @@ source:
     # baked in at configure time and reports NOTFOUND for datasets supplied
     # through G4LEDATA and friends, as the geant4-data-* packages do.
     - patches/0002-geant4-config-honour-dataset-env-vars.patch
+    # Without this, find_package(Geant4) takes the dependencies it refinds
+    # with CMake's find modules (expat, zlib, xerces-c, freetype, X11, and
+    # OpenGL) from /usr before the environment, when the system has their
+    # development files.
+    - patches/0003-geant4config-search-install-prefix-first.patch
 
 build:
-  number: 2
+  number: 3
   skip:
     - win
     # The global pinning carries one clhep per supported Geant4 release; build
