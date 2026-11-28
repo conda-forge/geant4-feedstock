@@ -69,3 +69,16 @@ geant4-config --check-datasets
 cmake -G Ninja -B test-build -S test_cmake ${CMAKE_ARGS:-}
 cmake --build test-build
 ./test-build/geant4-conda-test
+
+# Patch 0003: a system location searched before the environment that also holds
+# the development files of the dependencies must not be used by
+# find_package(Geant4). Simulate one with links to the environment, put first in
+# CMAKE_SYSTEM_PREFIX_PATH. Linux only, as macOS also searches the SDK.
+if [[ "$(uname)" == "Linux" ]]; then
+  fake_sys="${PWD}/fake-system-prefix"
+  mkdir -p "${fake_sys}"
+  ln -s "${PREFIX}/include" "${fake_sys}/include"
+  ln -s "${PREFIX}/lib" "${fake_sys}/lib"
+  env -u CMAKE_PREFIX_PATH cmake -G Ninja -B test-prefix-build -S test_cmake_prefix \
+    -DCMAKE_SYSTEM_PREFIX_PATH="${fake_sys}" -DFAKE_SYSTEM_PREFIX="${fake_sys}"
+fi

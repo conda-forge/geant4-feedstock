@@ -1,0 +1,53 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Thomas Kittelmann <thomas.kittelmann@ess.eu>
+Date: Sat, 28 Nov 2026 09:02:29 +0000
+Subject: [PATCH] Geant4Config.cmake: search the install prefix first when
+ refinding dependencies
+
+find_dependency for EXPAT, ZLIB, XercesC, Freetype, X11, and OpenGL uses
+CMake's find modules, which search the system locations in the order of
+CMAKE_SYSTEM_PREFIX_PATH. With CMake from a conda environment, /usr/local
+and /usr come before the environment, so development files of these
+libraries in /usr are taken instead of those Geant4 was built with. That
+fails when the system version is older than the version Geant4 asks for,
+and otherwise mixes system and environment libraries.
+
+Put the installation prefix of Geant4 first in CMAKE_SYSTEM_PREFIX_PATH
+while the dependencies are refound, and restore it afterwards. Locations
+given by the user, such as CMAKE_PREFIX_PATH or <Package>_ROOT, are
+searched before the system locations and still take precedence.
+
+Assisted-by: claude-code:claude-opus-5.5
+---
+ cmake/Templates/Geant4Config.cmake.in | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/cmake/Templates/Geant4Config.cmake.in b/cmake/Templates/Geant4Config.cmake.in
+index d11bc06..a15a205 100644
+--- a/cmake/Templates/Geant4Config.cmake.in
++++ b/cmake/Templates/Geant4Config.cmake.in
+@@ -201,6 +201,14 @@ set(Geant4_INCLUDE_DIRS "${Geant4_INCLUDE_DIR}")
+ # - Popped at end of this module
+ list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_LIST_DIR}/Modules")
+ 
++# Search our own installation prefix before the other system locations when
++# refinding dependencies, so they are taken from the prefix Geant4 was installed
++# with rather than from, e.g., /usr
++# - Restored at end of this module
++set(_geant4_saved_system_prefix_path "${CMAKE_SYSTEM_PREFIX_PATH}")
++get_filename_component(_geant4_install_prefix "${_geant4_thisdir}/../../.." ABSOLUTE)
++list(INSERT CMAKE_SYSTEM_PREFIX_PATH 0 "${_geant4_install_prefix}")
++
+ #-----------------------------------------------------------------------
+ # Data Resources
+ # NB: Because data paths can be "forward declared" these offer no
+@@ -597,6 +605,9 @@ set(Geant4_USE_FILE "${_geant4_thisdir}/UseGeant4.cmake")
+ #-----------------------------------------------------------------------
+ # Pop our custom module path from the CMake one
+ list(REMOVE_AT CMAKE_MODULE_PATH 0)
++set(CMAKE_SYSTEM_PREFIX_PATH "${_geant4_saved_system_prefix_path}")
++unset(_geant4_saved_system_prefix_path)
++unset(_geant4_install_prefix)
+ 
+ #-----------------------------------------------------------------------
+ # Check FOUNDness of required components.
