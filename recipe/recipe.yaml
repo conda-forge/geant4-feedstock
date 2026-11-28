@@ -27,7 +27,7 @@ source:
     - patches/0002-geant4-config-honour-dataset-env-vars.patch
 
 build:
-  number: 8
+  number: 9
   skip:
     - win
     # The global pinning carries one clhep per supported Geant4 release; build
@@ -123,6 +123,10 @@ outputs:
         - geant4-data-saiddata =2.0.0
       run_exports:
         - ${{ pin_subpackage('geant4', upper_bound='x.x.x') }}
+        # The Qt variant is preferred, not required, so without this a package
+        # built against it can be tested and installed with the noqt variant.
+        - if: geant4_variant == "qt"
+          then: geant4-qt-mutex * qt_*
     tests:
       - package_contents:
           strict: true
