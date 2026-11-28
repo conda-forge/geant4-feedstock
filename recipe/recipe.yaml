@@ -179,6 +179,7 @@ outputs:
         files:
           recipe:
             - test_cmake/
+            - test_cmake_prefix/
     about:
       summary: Geant4 is a toolkit for the simulation of the passage of particles through matter.
 
